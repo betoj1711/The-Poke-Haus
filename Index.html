@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1">&lt;title&gt;The Poke Haus™ — Pokémon Cards, Trainer Skins &amp; Bulk Buyback (San Antonio)&lt;/title&gt;</p>
+<p class="p1">&lt;meta name="description" content="The Poke Haus buys &amp; sells Pokémon TCG. Get an instant bulk estimate, submit a buyback inquiry, and shop our eBay store. Based in North San Antonio, TX." /&gt;</p>
+<p class="p1">&lt;link rel="canonical" href="https://www.thepokehaus.com/" /&gt;</p>
+<p class="p1">&lt;meta property="og:title" content="The Poke Haus — Pokémon Cards, Trainer Skins &amp; Bulk Buyback" /&gt;</p>
+<p class="p1">&lt;meta property="og:description" content="We buy and sell Pokémon TCG. Instant bulk estimates, fair rates, and fast payouts. Shop our eBay store or submit a sell inquiry." /&gt;</p>
+<p class="p1">&lt;meta property="og:type" content="website" /&gt;</p>
+<p class="p1">&lt;meta property="og:image" content="/assets/logo.png" /&gt;</p>
+<p class="p1">&lt;meta property="twitter:card" content="summary_large_image" /&gt;</p>
+<p class="p1">&lt;meta name="theme-color" content="#0a0f1a" /&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>:root{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--bg:#070b14; <span class="Apple-converted-space">        </span>/* Dark starry blue */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--card:#0f1726; <span class="Apple-converted-space">      </span>/* Card panel */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--ink:#eef3ff;<span class="Apple-converted-space">        </span>/* Primary text */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--muted:#a9b7e5;<span class="Apple-converted-space">      </span>/* Secondary text */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--accent:#ffd166; <span class="Apple-converted-space">    </span>/* Gold accent */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--accent2:#7cc4ff;<span class="Apple-converted-space">    </span>/* Electric blue */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--good:#7CFFB2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--warn:#ffc4c4;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>*{box-sizing:border-box}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,sans-serif;line-height:1.45}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>a{color:var(--accent)} a:hover{opacity:.9}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>img{max-width:100%;display:block}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.wrap{max-width:1180px;margin:0 auto;padding:28px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg,rgba(7,11,20,.95),rgba(7,11,20,.65));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.brand{display:flex;align-items:center;gap:14px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.brand img{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(124,196,255,.25))}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.brand h1{font-size:20px;letter-spacing:.4px;margin:0}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav a.btn{margin-left:6px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:linear-gradient(180deg,#16203a,#0b1326);border:1px solid rgba(255,255,255,.08);color:#dfe6ff;text-decoration:none;font-weight:600}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn{appearance:none;border:0;border-radius:12px;padding:12px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn.gold{background:linear-gradient(180deg,var(--accent),#e3b448);color:#1a1405}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn.blue{background:linear-gradient(180deg,#223661,#142544);color:#dbe6ff;border:1px solid rgba(124,196,255,.28)}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero{padding:58px 28px 36px;background:radial-gradient(1200px 420px at 50% -10%, rgba(124,196,255,.14), transparent 60%), radial-gradient(900px 380px at 20% -20%, rgba(255,209,102,.10), transparent 60%)}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-grid{display:grid;gap:26px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@media(min-width:980px){.hero-grid{grid-template-columns:1.15fr .85fr}}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>h2{margin:0 0 10px 0;font-size:22px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.muted{color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hr{height:1px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.16),rgba(255,255,255,0));margin:14px 0}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.grid{display:grid;gap:14px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@media(min-width:950px){.grid-2{grid-template-columns:1fr 1fr}}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>table{width:100%;border-collapse:collapse;font-size:14px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>th,td{padding:10px;border-bottom:1px dashed rgba(255,255,255,.07);text-align:left}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>th{color:var(--muted);font-weight:600;letter-spacing:.06em;font-size:12px;text-transform:uppercase}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>input,select,textarea{width:100%;background:#0b1326;border:1px solid rgba(255,255,255,.09);color:#e9f0ff;padding:10px 12px;border-radius:10px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>input[type=number]{max-width:120px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.row{display:flex;align-items:center;gap:10px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.right{text-align:right}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.big{font-size:34px;font-weight:800;line-height:1.1;margin:6px 0 10px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.badges{display:flex;flex-wrap:wrap;gap:10px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.badge{padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:#0f1726;color:#cfe0ff;font-weight:600;font-size:12px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bullets{display:grid;gap:8px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bullets li{margin-left:20px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.totals{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;margin-top:12px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.total-num{font-size:28px;font-weight:800;color:var(--accent)}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>footer{margin:36px 0 20px;color:var(--muted);text-align:center;font-size:12px}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>details summary{cursor:pointer;color:#d8e3ff}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.notice{background:#0d1834;border:1px solid rgba(255,255,255,.08);padding:10px 12px;border-radius:10px;color:#d3ddff}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.success{color:#0f5132;background:#0b2920;border:1px solid rgba(124,255,178,.25)}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;script type="application/ld+json"&gt;</p>
+<p class="p1">{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"@context":"https://schema.org",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"@type":"Organization",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"name":"The Poke Haus",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"url":"https://www.thepokehaus.com/",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"logo":"https://www.thepokehaus.com/assets/logo.png",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"sameAs":[</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"https://www.ebay.com/str/thepokehaus28",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"https://www.instagram.com/thepokehaus/",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"https://www.tiktok.com/@thepokehaus/",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"https://www.youtube.com/@thepokehaus/",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"https://share.google/UNSZXH65lsSSN4mia"</p>
+<p class="p1"><span class="Apple-converted-space">  </span>],</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"address":{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"@type":"PostalAddress",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"addressLocality":"San Antonio",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"addressRegion":"TX",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"addressCountry":"US"</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="nav wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="brand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Replace /assets/logo.png with your uploaded file path --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="/assets/logo.png" alt="The Poke Haus logo" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h1&gt;The Poke Haus™&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="kicker"&gt;Collect • Play • Trade • San Antonio, TX&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="pill" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener"&gt;🛒 Shop on eBay&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="pill" href="#sell"&gt;💳 Sell Your Cards&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="wrap hero-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="kicker"&gt;Boutique Pokémon TCG&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="big"&gt;Fair bulk buyback, beautiful drops, and collector‑grade accessories — without the noise.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="muted"&gt;We buy &amp; sell Pokémon TCG with an intentional, collector‑first approach. Based in North San Antonio. Estimates are instant; payouts finalized via &lt;strong&gt;PayPal Goods &amp; Services&lt;/strong&gt; for protection, or &lt;strong&gt;cash / Venmo&lt;/strong&gt; for in‑person deals.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="badges"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="badge"&gt;Top Rated eBay Seller&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="badge"&gt;Fast, Friendly Payouts&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="badge"&gt;NM‑Only Bulk&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top:16px" class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn gold" href="#sell"&gt;Get a Bulk Estimate&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn blue" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener"&gt;Shop Our eBay Store →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;What we buy (quick view)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="row" style="justify-content:space-between"&gt;&lt;span&gt;English bulk (C/UC) — per 1000&lt;/span&gt;&lt;strong&gt;$11.00&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="row" style="justify-content:space-between"&gt;&lt;span&gt;All Holos (modern)&lt;/span&gt;&lt;strong&gt;$0.03&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="row" style="justify-content:space-between"&gt;&lt;span&gt;V / VSTAR / VMAX / GX&lt;/span&gt;&lt;strong&gt;$0.35–$1.00&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="row" style="justify-content:space-between"&gt;&lt;span&gt;Special Illustration Rares&lt;/span&gt;&lt;strong&gt;$4.00&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="row" style="justify-content:space-between"&gt;&lt;span&gt;WotC Holo Rare (Eng.)&lt;/span&gt;&lt;strong&gt;$5.00&lt;/strong&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hr"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="muted" style="margin:0"&gt;See the full catalog below. Rates assume &lt;strong&gt;Near‑Mint&lt;/strong&gt;, may adjust after verification. No energy‑only lots.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- SELL / CALCULATOR --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="sell" class="wrap" style="margin-top:20px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="grid grid-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Bulk Estimate&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;th style="width:42%"&gt;Category&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;th&gt;Unit&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;th class="right"&gt;Rate&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;th class="right"&gt;Qty&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;th class="right"&gt;Subtotal&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;th&gt;&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;tbody id="lineItems"&gt;&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="row" style="margin-top:10px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn blue" id="addLine"&gt;+ Add another&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="muted"&gt;Estimates are not final until we inspect. NM English unless noted.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hr"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="row" style="flex-wrap:wrap;gap:12px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="row" style="gap:8px"&gt;&lt;span&gt;Language&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;select id="language"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="1"&gt;English&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="0.7"&gt;Non‑English (‑30%)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="row" style="gap:8px"&gt;&lt;input type="checkbox" id="noEnergy"&gt; &lt;span&gt;No energy cards&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hr"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="totals"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="kicker"&gt;Estimated Payout&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="total-num" id="total"&gt;$0.00&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="muted" id="bonusNote"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn blue" id="resetBtn"&gt;Reset&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Submit Buyback Inquiry&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="muted"&gt;We finalize via &lt;strong&gt;PayPal Goods &amp; Services&lt;/strong&gt; or &lt;strong&gt;cash / Venmo&lt;/strong&gt; for in‑person trades (North San Antonio, TX). You’ll get a confirmation email with your estimate summary.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;form id="sellForm" action="https://formspree.io/f/xovlbaob" method="POST" accept-charset="utf-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Full Name&lt;input type="text" name="name" id="name" required&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Email&lt;input type="email" name="email" id="email" required&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;City / State&lt;input type="text" name="location" id="location" placeholder="San Antonio, TX"&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Payout Method</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;select name="payout" id="payout"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="paypal"&gt;PayPal (Goods &amp; Services)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="cash_venmo"&gt;Cash / Venmo (in person)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="ach"&gt;ACH (bank transfer)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Notes&lt;textarea name="notes" id="notes" rows="3" placeholder="Sets, promos, languages, schedule, etc."&gt;&lt;/textarea&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Hidden fields populated by JS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="hidden" name="estimate_total" id="estimate_total" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="hidden" name="estimate_lines" id="estimate_lines" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="hidden" name="language_multiplier" id="language_multiplier" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="hidden" name="no_energy" id="no_energy" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="hidden" name="estimate_id" id="estimate_id" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hr"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="row" style="justify-content:space-between;align-items:center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="muted"&gt;Submitting creates an estimate only. We’ll confirm and schedule shipping or meetup.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn gold" type="submit"&gt;Send Inquiry →&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="notice success" id="formMsg" style="display:none;margin-top:10px"&gt;Thanks! Your inquiry was sent. We’ll reply shortly.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- BUY RATES CATALOG --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Buy Rate Catalog&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="catalog"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="muted"&gt;Rates reflect typical NM market demand and may change without notice. Energy‑only lots are not accepted.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- CONTENT &amp; SEO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="wrap grid grid-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;About The Poke Haus&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;We’re a collector‑run boutique focused on the Pokémon Trading Card Game. Our goal is simple: make buying, selling, and collecting feel premium without being pricey. We prioritize clean presentation, honest grading, and fast, protected payouts. Most sales happen on our eBay store — but local San Antonio trades are welcome.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="badges" style="margin-top:8px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="pill" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener"&gt;🛒 eBay Store&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="pill" href="https://share.google/UNSZXH65lsSSN4mia" target="_blank" rel="noopener"&gt;📍 Google Page&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;What We Sell&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="bullets"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Curated lots &amp; themed bundles&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Graded &amp; raw singles (NM+)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Collector tools: holders, stands, sleeves&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Trainer Skins™ (holographic debit/credit skins)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="muted"&gt;Pokémon is a registered trademark of Nintendo / Creatures / GAME FREAK. The Poke Haus is an independent reseller and is not affiliated with or endorsed by these companies.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- SOCIALS / EBAY CTA --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Follow &amp; Shop&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row" style="flex-wrap:wrap;gap:10px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="pill" href="https://www.instagram.com/thepokehaus/" target="_blank" rel="noopener"&gt;📸 Instagram&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="pill" href="https://www.tiktok.com/@thepokehaus/" target="_blank" rel="noopener"&gt;🎵 TikTok&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="pill" href="https://www.youtube.com/@thepokehaus/" target="_blank" rel="noopener"&gt;▶️ YouTube&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="pill" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener"&gt;🛒 eBay Store&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="muted"&gt;© &lt;span id="year"&gt;&lt;/span&gt; The Poke Haus — North San Antonio, Texas • thepokehaus.com&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">// ===== BUY RATE CATALOG &amp; CALCULATOR =====</p>
+<p class="p1">const defaultCatalog = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_common_uncommon_1000', group:'English Modern', label:'Common / Uncommon (per 1000)', unit:'per_1000', rate:11.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_rare', group:'English Modern', label:'Rare', unit:'per_card', rate:0.02},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_all_holos', group:'English Modern', label:'All Holos', unit:'per_card', rate:0.03},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_v', group:'English Modern', label:'V', unit:'per_card', rate:0.35},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_vstar', group:'English Modern', label:'VSTAR', unit:'per_card', rate:0.50},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_vmax', group:'English Modern', label:'VMAX', unit:'per_card', rate:1.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_gx', group:'English Modern', label:'GX', unit:'per_card', rate:1.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_gx_promo_hidden', group:'English Modern', label:'GX Promo / Hidden Fates', unit:'per_card', rate:0.50},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_ex_fa_sv', group:'English Modern', label:'ex Full Art (SV)', unit:'per_card', rate:0.50},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_ex_sv', group:'English Modern', label:'ex (SV)', unit:'per_card', rate:0.25},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_illustration_rare', group:'English Modern', label:'Illustration Rare', unit:'per_card', rate:1.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_special_illustration_rare', group:'English Modern', label:'Special Illustration Rare', unit:'per_card', rate:4.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_ex_xy', group:'English Modern', label:'EX (XY era)', unit:'per_card', rate:1.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_v_fa_trainer_fa', group:'English Modern', label:'V Full Art / Trainer Full Art', unit:'per_card', rate:0.50},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_mega_ex', group:'English Modern', label:'Mega EX', unit:'per_card', rate:2.75},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_secret_rare', group:'English Modern', label:'Secret Rare (Gold / Rainbow)', unit:'per_card', rate:2.75},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_trainer_gallery', group:'English Modern', label:'Trainer / Galarian Gallery', unit:'per_card', rate:0.25},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_amazing_rare', group:'English Modern', label:'Amazing Rare', unit:'per_card', rate:0.35},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_radiant_rare', group:'English Modern', label:'Radiant Rare', unit:'per_card', rate:0.15},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'em_baby_shinies', group:'English Modern', label:'Baby Shinies', unit:'per_card', rate:0.75},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'jp_common_uncommon_1000', group:'Japanese', label:'Common / Uncommon (per 1000)', unit:'per_1000', rate:8.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'jp_all_holos', group:'Japanese', label:'All Holos', unit:'per_card', rate:0.01},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'jp_v_vstar_ex', group:'Japanese', label:'V / VSTAR / ex', unit:'per_card', rate:0.05},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'jp_gx_vmax', group:'Japanese', label:'GX / VMAX', unit:'per_card', rate:0.025},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'jp_wotc_cuc', group:'Japanese', label:'WotC C/UC', unit:'per_card', rate:0.08},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'jp_wotc_rare', group:'Japanese', label:'WotC Rare', unit:'per_card', rate:0.50},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'jp_wotc_holo_rare', group:'Japanese', label:'WotC Holo Rare', unit:'per_card', rate:4.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_cuc_unl', group:'WotC (English)', label:'C/UC Unlimited', unit:'per_card', rate:0.15},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_trainers_unl', group:'WotC (English)', label:'Trainers Unlimited', unit:'per_card', rate:0.08},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_rare_unl', group:'WotC (English)', label:'Rare Unlimited', unit:'per_card', rate:1.75},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_rare_trainers_unl', group:'WotC (English)', label:'Rare Trainers Unlimited', unit:'per_card', rate:0.75},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_holo_rare_unl', group:'WotC (English)', label:'Holo Rare Unlimited', unit:'per_card', rate:5.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_common_1st', group:'WotC (English)', label:'Common 1st Ed', unit:'per_card', rate:0.75},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_uncommon_1st', group:'WotC (English)', label:'Uncommon 1st Ed', unit:'per_card', rate:1.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_trainer_1st', group:'WotC (English)', label:'Trainer 1st Ed', unit:'per_card', rate:0.25},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_rare_1st', group:'WotC (English)', label:'Rare 1st Ed', unit:'per_card', rate:5.00},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{id:'wotc_rare_trainers_1st', group:'WotC (English)', label:'Rare Trainers 1st Ed', unit:'per_card', rate:1.50}</p>
+<p class="p1">];</p>
+<p class="p1">const bonusTiers = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ threshold: 500, bonus: 0.05, label:"+5% (500+ cards)" },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ threshold: 1000, bonus: 0.10, label:"+10% (1000+ cards)" },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ threshold: 2500, bonus: 0.15, label:"+15% (2500+ cards)" }</p>
+<p class="p1">];</p>
+<p class="p1">const state = { lines:[], catalog: defaultCatalog };</p>
+<p class="p1">function money(n){ return n.toLocaleString(undefined,{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2}); }</p>
+<p class="p1">function addLine(defaultId){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const tr = document.createElement('tr');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const select = document.createElement('select'); select.style.width='100%';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const groups = [...new Set(state.catalog.map(c=&gt;c.group))];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>groups.forEach(gr=&gt;{ const og=document.createElement('optgroup');og.label=gr; state.catalog.filter(c=&gt;c.group===gr).forEach(c=&gt;{const o=document.createElement('option');o.value=c.id;o.textContent=c.label;og.appendChild(o)}); select.appendChild(og) });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(defaultId) select.value = defaultId;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const unitCell=document.createElement('td');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rateCell=document.createElement('td'); rateCell.className='right';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const qtyInput=document.createElement('input'); qtyInput.type='number'; qtyInput.min='0'; qtyInput.step='1'; qtyInput.placeholder='0';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const qtyCell=document.createElement('td'); qtyCell.className='right'; qtyCell.appendChild(qtyInput);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const subCell=document.createElement('td'); subCell.className='right'; subCell.textContent='$0.00';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rmBtn=document.createElement('button'); rmBtn.className='btn blue'; rmBtn.type='button'; rmBtn.textContent='Remove';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rmCell=document.createElement('td'); rmCell.appendChild(rmBtn);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const catCell=document.createElement('td'); catCell.appendChild(select);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>tr.appendChild(catCell); tr.appendChild(unitCell); tr.appendChild(rateCell); tr.appendChild(qtyCell); tr.appendChild(subCell); tr.appendChild(rmCell);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('lineItems').appendChild(tr);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>function refresh(){ const item=state.catalog.find(c=&gt;c.id===select.value); unitCell.textContent=item.unit==='per_1000'?'per 1000':'per card'; rateCell.textContent=money(item.rate); calc(); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>select.addEventListener('change',()=&gt;{refresh(); saveLines();});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>qtyInput.addEventListener('input',()=&gt;{calc(); saveLines();});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>rmBtn.addEventListener('click',()=&gt;{ tr.remove(); calc(); saveLines();});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>refresh();</p>
+<p class="p1">}</p>
+<p class="p1">function saveLines(){ const rows=[...document.querySelectorAll('#lineItems tr')]; state.lines=rows.map(tr=&gt;{ const id=tr.querySelector('select').value; const qty=parseInt(tr.querySelector('input[type=number]').value||'0',10); return {id,qty}; }); }</p>
+<p class="p1">function activeBonus(cardCount){ let b=0; for(const t of bonusTiers){ if(cardCount&gt;=t.threshold) b=Math.max(b,t.bonus); } return b; }</p>
+<p class="p1">function calc(){ let subtotal=0, count=0; const rows=[...document.querySelectorAll('#lineItems tr')]; rows.forEach(tr=&gt;{ const id=tr.querySelector('select').value; const qty=parseFloat(tr.querySelector('input[type=number]').value||'0'); const item=state.catalog.find(c=&gt;c.id===id); let sub=0; if(item.unit==='per_card'){sub=qty*item.rate; count+=qty;} else {sub=(qty/1000)*item.rate; count+=qty;} tr.querySelector('td.right:nth-child(5)').textContent=money(sub); subtotal+=sub; }); const lang=parseFloat(document.getElementById('language').value||'1'); const bonus=activeBonus(count); const adjusted=subtotal*(1+bonus)*lang; document.getElementById('total').textContent=money(adjusted); document.getElementById('bonusNote').textContent = bonus&gt;0?`Bonus applied: ${(bonus*100).toFixed(0)}% for ${count.toLocaleString()} cards`:''; document.getElementById('estimate_total').value = adjusted.toFixed(2); document.getElementById('language_multiplier').value = lang; document.getElementById('no_energy').value = document.getElementById('noEnergy').checked ? 'yes':'no'; // build lines summary</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const summary = state.lines.map(l=&gt;{const it=state.catalog.find(c=&gt;c.id===l.id)||{};return {group:it.group,label:it.label,unit:it.unit,rate:it.rate,qty:l.qty};}); document.getElementById('estimate_lines').value = JSON.stringify(summary); document.getElementById('estimate_id').value = 'TPH-'+Math.random().toString(36).slice(2,8).toUpperCase(); }</p>
+<p class="p1">function renderCatalog(){ const wrap=document.getElementById('catalog'); wrap.innerHTML=''; const groups=[...new Set(state.catalog.map(c=&gt;c.group))]; groups.forEach(gr=&gt;{ const det=document.createElement('details'); const sum=document.createElement('summary'); sum.textContent=gr; det.appendChild(sum); const tbl=document.createElement('table'); const thead=document.createElement('thead'); thead.innerHTML='&lt;tr&gt;&lt;th&gt;Label&lt;/th&gt;&lt;th&gt;Unit&lt;/th&gt;&lt;th class="right"&gt;Rate&lt;/th&gt;&lt;/tr&gt;'; tbl.appendChild(thead); const tb=document.createElement('tbody'); state.catalog.filter(c=&gt;c.group===gr).forEach(c=&gt;{ const tr=document.createElement('tr'); tr.innerHTML = `&lt;td&gt;${c.label}&lt;/td&gt;&lt;td&gt;${c.unit==='per_1000'?'per 1000':'per card'}&lt;/td&gt;&lt;td class="right"&gt;${money(c.rate)}&lt;/td&gt;`; tb.appendChild(tr); }); tbl.appendChild(tb); det.appendChild(tbl); wrap.appendChild(det); }); }</p>
+<p class="p1">// Events</p>
+<p class="p1">addLine(); calc(); renderCatalog();</p>
+<p class="p1">document.getElementById('addLine').addEventListener('click',()=&gt;addLine());</p>
+<p class="p1">document.getElementById('language').addEventListener('change',calc);</p>
+<p class="p1">document.getElementById('noEnergy').addEventListener('change',calc);</p>
+<p class="p1">document.getElementById('resetBtn').addEventListener('click',()=&gt;{ document.getElementById('lineItems').innerHTML=''; state.lines=[]; addLine(); calc(); });</p>
+<p class="p1">document.getElementById('year').textContent = new Date().getFullYear();</p>
+<p class="p2"><br></p>
+<p class="p1">// Handle Formspree response UX (optional)</p>
+<p class="p1">document.getElementById('sellForm').addEventListener('submit', function(){ calc(); setTimeout(()=&gt;{ document.getElementById('formMsg').style.display='block'; }, 400); });</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
