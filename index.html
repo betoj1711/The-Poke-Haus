@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Poke Haus™ — Pokémon Cards, Trainer Skins & Bulk Buyback (San Antonio)</title>
+<meta name="description" content="The Poke Haus buys & sells Pokémon TCG. Get an instant bulk estimate, submit a buyback inquiry, and shop our eBay store. Based in North San Antonio, TX." />
+<link rel="canonical" href="https://thepokehaus.com/" />
+<link rel="icon" href="assets/favicon.png">
+<meta property="og:title" content="The Poke Haus — Pokémon Cards, Trainer Skins & Bulk Buyback" />
+<meta property="og:description" content="We buy and sell Pokémon TCG. Instant bulk estimates, fair rates, and fast payouts. Shop our eBay store or submit a sell inquiry." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/logo.png" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0a0f1a" />
+<link rel="stylesheet" href="style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "The Poke Haus",
+  "url": "https://www.thepokehaus.com/",
+  "logo": "https://www.thepokehaus.com/assets/logo.png",
+  "sameAs": [
+    "https://www.ebay.com/str/thepokehaus28",
+    "https://www.instagram.com/thepokehaus/",
+    "https://www.tiktok.com/@thepokehaus/",
+    "https://www.youtube.com/@thepokehaus/",
+    "https://share.google/UNSZXH65lsSSN4mia"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  }
+}
+</script>
+</head>
+<body>
+  <header>
+    <nav class="nav wrap">
+      <div class="brand">
+        <img src="assets/logo.png" alt="The Poke Haus logo" />
+        <div>
+          <h1>The Poke Haus™</h1>
+          <div class="kicker">Collect • Play • Trade • San Antonio, TX</div>
+        </div>
+      </div>
+      <div class="row">
+        <a class="pill" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">🛒 Shop on eBay</a>
+        <a class="pill" href="#sell">💳 Sell Your Cards</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">Boutique Pokémon TCG</div>
+        <h2 class="big">Fair bulk buyback, beautiful drops, and collector‑grade accessories — without the noise.</h2>
+        <p class="muted">We buy & sell Pokémon TCG with an intentional, collector‑first approach. Based in North San Antonio. Estimates are instant; payouts finalized via <strong>PayPal Goods & Services</strong> for protection, or <strong>cash / Venmo</strong> for in‑person deals.</p>
+        <div class="badges">
+          <span class="badge">Top Rated eBay Seller</span>
+          <span class="badge">Fast, Friendly Payouts</span>
+          <span class="badge">NM‑Only Bulk</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn gold" href="#sell">Get a Bulk Estimate</a>
+          <a class="btn blue" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">Shop Our eBay Store →</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>What we buy (quick view)</h3>
+        <div class="grid">
+          <div class="row spread"><span>English bulk (C/UC) — per 1000</span><strong>$11.00</strong></div>
+          <div class="row spread"><span>All Holos (modern)</span><strong>$0.03</strong></div>
+          <div class="row spread"><span>V / VSTAR / VMAX / GX</span><strong>$0.35–$1.00</strong></div>
+          <div class="row spread"><span>Special Illustration Rares</span><strong>$4.00</strong></div>
+          <div class="row spread"><span>WotC Holo Rare (Eng.)</span><strong>$5.00</strong></div>
+        </div>
+        <div class="hr"></div>
+        <p class="muted small">See the full catalog below. Rates assume <strong>Near‑Mint</strong>, may adjust after verification. No energy‑only lots.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sell" class="wrap">
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Bulk Estimate</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:42%">Category</th>
+              <th>Unit</th>
+              <th class="right">Rate</th>
+              <th class="right">Qty</th>
+              <th class="right">Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lineItems"></tbody>
+        </table>
+        <div class="row topgap">
+          <button class="btn blue" id="addLine" type="button">+ Add another</button>
+          <span class="muted">Estimates are not final until we inspect. NM English unless noted.</span>
+        </div>
+        <div class="hr"></div>
+        <div class="row wraprow">
+          <label class="row"><span>Language</span>
+            <select id="language">
+              <option value="1">English</option>
+              <option value="0.7">Non‑English (‑30%)</option>
+            </select>
+          </label>
+          <label class="row"><input type="checkbox" id="noEnergy"> <span>No energy cards</span></label>
+        </div>
+        <div class="hr"></div>
+        <div class="totals">
+          <div>
+            <div class="kicker">Estimated Payout</div>
+            <div class="total-num" id="total">$0.00</div>
+            <div class="muted" id="bonusNote"></div>
+          </div>
+          <button class="btn blue" id="resetBtn" type="button">Reset</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Submit Buyback Inquiry</h3>
+        <p class="muted">We finalize via <strong>PayPal Goods & Services</strong> or <strong>cash / Venmo</strong> for in‑person trades (North San Antonio, TX). You’ll get a confirmation email with your estimate summary.</p>
+        <form id="sellForm" action="https://formspree.io/f/xovlbaob" method="POST" accept-charset="utf-8">
+          <div class="grid">
+            <label>Full Name<input type="text" name="name" id="name" required></label>
+            <label>Email<input type="email" name="email" id="email" required></label>
+            <label>City / State<input type="text" name="location" id="location" placeholder="San Antonio, TX"></label>
+            <label>Payout Method
+              <select name="payout" id="payout">
+                <option value="paypal">PayPal (Goods & Services)</option>
+                <option value="cash_venmo">Cash / Venmo (in person)</option>
+                <option value="ach">ACH (bank transfer)</option>
+              </select>
+            </label>
+            <label>Notes<textarea name="notes" id="notes" rows="3" placeholder="Sets, promos, languages, schedule, etc."></textarea></label>
+          </div>
+          <!-- Hidden fields populated by JS -->
+          <input type="hidden" name="estimate_total" id="estimate_total" />
+          <input type="hidden" name="estimate_lines" id="estimate_lines" />
+          <input type="hidden" name="language_multiplier" id="language_multiplier" />
+          <input type="hidden" name="no_energy" id="no_energy" />
+          <input type="hidden" name="estimate_id" id="estimate_id" />
+          <div class="hr"></div>
+          <div class="row spread">
+            <span class="muted small">Submitting creates an estimate only. We’ll confirm and schedule shipping or meetup.</span>
+            <button class="btn gold" type="submit">Send Inquiry →</button>
+          </div>
+        </form>
+        <div class="notice success" id="formMsg" style="display:none;margin-top:10px">Thanks! Your inquiry was sent. We’ll reply shortly.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="card">
+      <h3>eBay Store — Latest Listings</h3>
+      <div id="ebay-grid" class="ebay-grid"></div>
+      <div class="row cta-row">
+        <a class="btn blue" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">See All on eBay →</a>
+      </div>
+      <p class="muted small">Feed auto-loads from our eBay store RSS. If items don’t appear, click through to eBay.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="card">
+      <h3>Buy Rate Catalog</h3>
+      <div id="catalog"></div>
+      <p class="muted small">Rates reflect typical NM market demand and may change without notice. Energy‑only lots are not accepted.</p>
+    </div>
+  </section>
+
+  <section class="wrap grid grid-2">
+    <div class="card">
+      <h3>About The Poke Haus</h3>
+      <p>We’re a collector‑run boutique focused on the Pokémon Trading Card Game. Our goal is simple: make buying, selling, and collecting feel premium without being pricey. We prioritize clean presentation, honest grading, and fast, protected payouts. Most sales happen on our eBay store — but local San Antonio trades are welcome.</p>
+      <div class="badges">
+        <a class="pill" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">🛒 eBay Store</a>
+        <a class="pill" href="https://share.google/UNSZXH65lsSSN4mia" target="_blank" rel="noopener">📍 Google Page</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Follow Us</h3>
+      <div class="row wraprow">
+        <a class="pill" href="https://www.instagram.com/thepokehaus/" target="_blank" rel="noopener">📸 Instagram</a>
+        <a class="pill" href="https://www.tiktok.com/@thepokehaus/" target="_blank" rel="noopener">🎵 TikTok</a>
+        <a class="pill" href="https://www.youtube.com/@thepokehaus/" target="_blank" rel="noopener">▶️ YouTube</a>
+        <a class="pill" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">🛒 eBay Store</a>
+      </div>
+      <p class="muted small">North San Antonio, TX — DM for local meetups.</p>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div class="muted small">© <span id="year"></span> The Poke Haus — North San Antonio, Texas • thepokehaus.com</div>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
