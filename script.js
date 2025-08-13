@@ -1,4 +1,4 @@
-// Calculator logic
+// calculator identical to prior builds
 const catalog = [
   {id:'em_common_uncommon_1000', group:'English Modern', label:'Common / Uncommon (per 1000)', unit:'per_1000', rate:11.00},
   {id:'em_rare', group:'English Modern', label:'Rare', unit:'per_card', rate:0.02},
@@ -63,7 +63,7 @@ function addLine(defaultId){
   const qtyInput=document.createElement('input'); qtyInput.type='number'; qtyInput.min='0'; qtyInput.step='1'; qtyInput.placeholder='0';
   const qtyCell=document.createElement('td'); qtyCell.className='right'; qtyCell.appendChild(qtyInput);
   const subCell=document.createElement('td'); subCell.className='right'; subCell.textContent='$0.00';
-  const rmBtn=document.createElement('button'); rmBtn.className='btn accent3'; rmBtn.type='button'; rmBtn.textContent='Remove';
+  const rmBtn=document.createElement('button'); rmBtn.className='btn red'; rmBtn.type='button'; rmBtn.textContent='Remove';
   const rmCell=document.createElement('td'); rmCell.appendChild(rmBtn);
   const catCell=document.createElement('td'); catCell.appendChild(select);
   tr.appendChild(catCell); tr.appendChild(unitCell); tr.appendChild(rateCell); tr.appendChild(qtyCell); tr.appendChild(subCell); tr.appendChild(rmCell);

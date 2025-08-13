@@ -8,7 +8,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:image" content="assets/og-cover.png" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta name="theme-color" content="#171717" />
+<meta name="theme-color" content="#191970" />
 <link rel="stylesheet" href="style.css" /></head><body>
 <header class="site-head">
   <div class="wrap headrow">
@@ -48,14 +48,14 @@
         <thead><tr><th style="width:42%">Category</th><th>Unit</th><th class="right">Rate</th><th class="right">Qty</th><th class="right">Subtotal</th><th></th></tr></thead>
         <tbody id="lineItems"></tbody>
       </table>
-      <div class="row topgap"><button class="btn accent2" id="addLine" type="button">+ Add another</button><span class="muted tiny">Estimate only — we’ll confirm after inspection.</span></div>
+      <div class="row topgap"><button class="btn blue" id="addLine" type="button">+ Add another</button><span class="muted tiny">Estimate only — we’ll confirm after inspection.</span></div>
       <div class="hr"></div>
       <div class="row wraprow">
         <label class="row"><span>Language</span><select id="language"><option value="1">English</option><option value="0.7">Non‑English (‑30%)</option></select></label>
         <label class="row"><input type="checkbox" id="noEnergy"> <span>No energy cards</span></label>
       </div>
       <div class="hr"></div>
-      <div class="totals"><div><div class="kicker">Estimated Payout</div><div class="total-num" id="total">$0.00</div><div class="muted" id="bonusNote"></div></div><button class="btn accent3" id="resetBtn" type="button">Reset</button></div>
+      <div class="totals"><div><div class="kicker">Estimated Payout</div><div class="total-num" id="total">$0.00</div><div class="muted" id="bonusNote"></div></div><button class="btn red" id="resetBtn" type="button">Reset</button></div>
     </div>
   </details>
   <div class="grid two">
@@ -74,7 +74,7 @@
         <input type="hidden" name="language_multiplier" id="language_multiplier" />
         <input type="hidden" name="no_energy" id="no_energy" />
         <input type="hidden" name="estimate_id" id="estimate_id" />
-        <div class="row spread topgap"><span class="muted tiny">We’ll reply quickly with next steps.</span><button class="btn accent" type="submit">Send Inquiry →</button></div>
+        <div class="row spread topgap"><span class="muted tiny">We’ll reply quickly with next steps.</span><button class="btn blue" type="submit">Send Inquiry →</button></div>
       </form>
       <div class="notice success" id="formMsg" style="display:none;margin-top:10px">Thanks! Your inquiry was sent. We’ll reply shortly.</div>
     </div>
