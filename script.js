@@ -1,3 +1,4 @@
+// Calculator logic
 const catalog = [
   {id:'em_common_uncommon_1000', group:'English Modern', label:'Common / Uncommon (per 1000)', unit:'per_1000', rate:11.00},
   {id:'em_rare', group:'English Modern', label:'Rare', unit:'per_card', rate:0.02},
@@ -62,11 +63,11 @@ function addLine(defaultId){
   const qtyInput=document.createElement('input'); qtyInput.type='number'; qtyInput.min='0'; qtyInput.step='1'; qtyInput.placeholder='0';
   const qtyCell=document.createElement('td'); qtyCell.className='right'; qtyCell.appendChild(qtyInput);
   const subCell=document.createElement('td'); subCell.className='right'; subCell.textContent='$0.00';
-  const rmBtn=document.createElement('button'); rmBtn.className='btn blue'; rmBtn.type='button'; rmBtn.textContent='Remove';
+  const rmBtn=document.createElement('button'); rmBtn.className='btn accent3'; rmBtn.type='button'; rmBtn.textContent='Remove';
   const rmCell=document.createElement('td'); rmCell.appendChild(rmBtn);
   const catCell=document.createElement('td'); catCell.appendChild(select);
   tr.appendChild(catCell); tr.appendChild(unitCell); tr.appendChild(rateCell); tr.appendChild(qtyCell); tr.appendChild(subCell); tr.appendChild(rmCell);
-  document.querySelector('#lineItems').appendChild(tr);
+  document.getElementById('lineItems').appendChild(tr);
 
   function refresh(){ const item=catalog.find(c=>c.id===select.value); unitCell.textContent=item.unit==='per_1000'?'per 1000':'per card'; rateCell.textContent=money(item.rate); calc(); }
   select.addEventListener('change',()=>{refresh(); saveLines();});
@@ -96,20 +97,18 @@ function calc(){
     tr.querySelector('td.right:nth-child(5)').textContent = money(sub);
     subtotal += sub;
   });
-  const lang = parseFloat(document.querySelector('#language').value || '1');
+  const lang = parseFloat(document.getElementById('language').value || '1');
   const bonus = activeBonus(cardCount);
   const adjusted = subtotal * (1+bonus) * lang;
-  document.querySelector('#total').textContent = money(adjusted);
-  document.querySelector('#bonusNote').textContent = bonus>0 ? `Bonus applied: ${(bonus*100).toFixed(0)}% for ${cardCount.toLocaleString()} cards` : '';
-  // Hidden fields for Formspree
+  document.getElementById('total').textContent = money(adjusted);
+  document.getElementById('bonusNote').textContent = bonus>0 ? `Bonus applied: ${(bonus*100).toFixed(0)}% for ${cardCount.toLocaleString()} cards` : '';
+  // Hidden fields for Formspree (only if present)
   const et = document.getElementById('estimate_total'); if(et) et.value = adjusted.toFixed(2);
   const lm = document.getElementById('language_multiplier'); if(lm) lm.value = lang;
-  const ne = document.getElementById('no_energy'); if(ne) ne.value = document.querySelector('#noEnergy').checked ? 'yes':'no';
+  const ne = document.getElementById('no_energy'); if(ne) ne.value = document.getElementById('noEnergy').checked ? 'yes':'no';
   const el = document.getElementById('estimate_lines'); if(el){ const summary = state.lines.map(l=>{ const it=catalog.find(c=>c.id===l.id)||{}; return {group:it.group,label:it.label,unit:it.unit,rate:it.rate,qty:l.qty}; }); el.value = JSON.stringify(summary); }
   const ei = document.getElementById('estimate_id'); if(ei) ei.value = 'TPH-'+Math.random().toString(36).slice(2,8).toUpperCase();
 }
-
-// Boot (only on sell.html)
 document.addEventListener('DOMContentLoaded', ()=>{
   const tbody = document.getElementById('lineItems');
   if(tbody){ addLine(); calc(); document.getElementById('addLine').addEventListener('click',()=>addLine()); document.getElementById('language').addEventListener('change',calc); document.getElementById('noEnergy').addEventListener('change',calc); document.getElementById('resetBtn').addEventListener('click',()=>{ tbody.innerHTML=''; state.lines=[]; addLine(); calc(); }); }
