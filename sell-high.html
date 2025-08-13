@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>High‑Value Sell — The Poke Haus</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Get an instant quote for Pokémon singles $5+ using TCGplayer market data." />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap headrow">
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">☰</button>
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="The Poke Haus logo" />
+      <div class="brandtext"><strong>The Poke Haus™</strong><span>San Antonio • Pokémon TCG</span></div>
+    </a>
+    <nav class="top-socials">
+      <a href="https://www.instagram.com/thepokehaus/" target="_blank" rel="noopener" title="Instagram"><img src="assets/instagram.svg" alt="Instagram"></a>
+      <a href="https://www.tiktok.com/@thepokehaus/" target="_blank" rel="noopener" title="TikTok"><img src="assets/tiktok.svg" alt="TikTok"></a>
+      <a href="https://www.youtube.com/@thepokehaus/" target="_blank" rel="noopener" title="YouTube"><img src="assets/youtube.svg" alt="YouTube"></a>
+      <a href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener" title="eBay"><img src="assets/ebay.svg" alt="eBay"></a>
+    </nav>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    <nav class="side-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="sell.html">Sell (Bulk)</a>
+      <a href="sell-high.html">Sell (Singles $5+)</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="ext" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">eBay Store</a>
+    </nav>
+  </aside>
+</header>
+
+<main>
+<section class="wrap">
+  <div class="card comfy">
+    <h1>High‑Value Singles ($5+)</h1>
+    <p class="muted">Paste a card name and set. We’ll fetch TCGplayer <strong>Market Price</strong> and estimate your payout based on recent sales. We pay <strong>60–80%</strong> of market:<br><span class="tiny">High recent sales → 80%, Medium → 70%, Low → 60%. Final offer after inspection.</span></p>
+  </div>
+
+  <div class="card comfy">
+    <div class="row wraprow">
+      <label style="flex:2">Card Name<input type="text" id="cardName" placeholder="e.g., Charizard ex"></label>
+      <label style="flex:1">Set (optional)<input type="text" id="cardSet" placeholder="e.g., Obsidian Flames"></label>
+      <label style="flex:1">Condition
+        <select id="condition">
+          <option value="NM">Near Mint</option>
+          <option value="LP">Lightly Played</option>
+          <option value="MP">Moderately Played</option>
+        </select>
+      </label>
+      <label style="flex:0.6">Qty<input type="number" id="qty" value="1" min="1" step="1"></label>
+    </div>
+    <div class="row" style="gap:10px;margin-top:10px">
+      <button class="btn blue" id="fetchBtn" type="button">Fetch Market from TCGplayer</button>
+      <button class="btn dark" id="addManualBtn" type="button">Add Manually</button>
+      <span class="tiny muted">Requires a simple serverless proxy with your TCGplayer API keys. See README.</span>
+    </div>
+    <div class="hr"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Card</th><th>Set</th><th>Cond</th><th class="right">Market (USD)</th><th>Tier</th><th class="right">Payout/Card</th><th class="right">Qty</th><th class="right">Subtotal</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="hvBody"></tbody>
+    </table>
+    <div class="totals">
+      <div>
+        <div class="kicker">Estimated Payout</div>
+        <div class="total-num" id="hvTotal">$0.00</div>
+        <div class="muted tiny">Singles under $5 are ignored automatically.</div>
+      </div>
+      <button class="btn red" id="hvReset" type="button">Reset</button>
+    </div>
+  </div>
+
+  <div class="grid two">
+    <div class="card comfy">
+      <h2>Submit High‑Value Inquiry</h2>
+      <form id="hvForm" action="https://formspree.io/f/xovlbaob" method="POST">
+        <label>Name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>City / State<input type="text" name="location" placeholder="San Antonio, TX"></label>
+        <label>Notes<textarea name="notes" rows="3" placeholder="Link to photos, exact printings, alt arts, etc."></textarea></label>
+        <input type="hidden" name="hv_total" id="hv_total">
+        <input type="hidden" name="hv_lines" id="hv_lines">
+        <div class="row spread topgap"><span class="muted tiny">We’ll reply quickly with next steps.</span><button class="btn blue" type="submit">Send Inquiry →</button></div>
+      </form>
+    </div>
+    <div class="card comfy">
+      <h2>How tiers work</h2>
+      <ul class="bullets">
+        <li><strong>High velocity (80%)</strong>: lots of recent sales (hot cards)</li>
+        <li><strong>Medium (70%)</strong>: steady sellers</li>
+        <li><strong>Low (60%)</strong>: slow sellers / niche</li>
+      </ul>
+      <p class="tiny muted">We infer velocity from TCGplayer data (sales rank/volume). If data is missing, we default to 70% tier.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap footgrid">
+    <div><div class="title">The Poke Haus™</div><div class="muted tiny">North San Antonio, Texas • Independent Pokémon TCG boutique</div></div>
+    <div class="socials">
+      <a href="https://www.instagram.com/thepokehaus/" target="_blank" rel="noopener"><img src="assets/instagram.svg" alt="Instagram"><span>Instagram</span></a>
+      <a href="https://www.tiktok.com/@thepokehaus/" target="_blank" rel="noopener"><img src="assets/tiktok.svg" alt="TikTok"><span>TikTok</span></a>
+      <a href="https://www.youtube.com/@thepokehaus/" target="_blank" rel="noopener"><img src="assets/youtube.svg" alt="YouTube"><span>YouTube</span></a>
+      <a href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener"><img src="assets/ebay.svg" alt="eBay"><span>eBay</span></a>
+    </div>
+  </div>
+  <div class="wrap tiny">© <span id="year"></span> The Poke Haus — thepokehaus.com</div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script src="nav.js"></script>
+<script src="tcg.js"></script>
+</body>
+</html>
