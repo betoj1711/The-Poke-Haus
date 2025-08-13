@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Contact — The Poke Haus</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The Poke Haus — Pokémon TCG boutique in San Antonio, TX. Buy & sell cards, get a bulk estimate, and shop our eBay store." />
+<link rel="icon" href="assets/favicon.png">
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/og-cover.png" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0d1029" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="The Poke Haus logo" />
+      <div class="logotext">
+        <strong>The Poke Haus™</strong>
+        <span>San Antonio • Pokémon TCG</span>
+      </div>
+    </a>
+    <nav class="mainnav">
+      <a href="shop.html">Shop</a>
+      <a href="sell.html">Sell</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="pill ext" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">🛒 eBay</a>
+    </nav>
+  </div>
+</header>
+<section class="wrap">
+  <div class="card comfy">
+    <h1>Contact</h1>
+    <p>Questions about selling, buying, or local meetups? Send us a note — we reply quickly.</p>
+    <form id="contactForm" action="https://formspree.io/f/xovlbaob" method="POST" class="contactform">
+      <label>Your Name<input type="text" name="name" required></label>
+      <label>Email<input type="email" name="email" required></label>
+      <label>Message<textarea name="message" rows="4" placeholder="Tell us what you’re looking to buy/sell, or when you’re free to meet in North San Antonio."></textarea></label>
+      <div class="row spread topgap">
+        <span class="muted tiny">Protected by Formspree.</span>
+        <button class="btn gold" type="submit">Send →</button>
+      </div>
+    </form>
+  </div>
+</section>
+<footer class="site-foot">
+  <div class="wrap footgrid">
+    <div>
+      <div class="title">The Poke Haus™</div>
+      <div class="muted">North San Antonio, Texas</div>
+      <div class="muted">Collector‑run boutique for Pokémon TCG.</div>
+      <div class="socials">
+        <a href="https://www.instagram.com/thepokehaus/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@thepokehaus/" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@thepokehaus/" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://share.google/UNSZXH65lsSSN4mia" target="_blank" rel="noopener">Google</a>
+      </div>
+    </div>
+    <div>
+      <div class="title">Shop</div>
+      <ul class="links">
+        <li><a href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">eBay Store</a></li>
+        <li><a href="shop.html#featured">Featured Drops</a></li>
+        <li><a href="shop.html#bundles">Bundles</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="title">Sell</div>
+      <ul class="links">
+        <li><a href="sell.html">Bulk Estimate</a></li>
+        <li><a href="sell.html#rates">Buy Rates</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap tiny">© <span id="year"></span> The Poke Haus — thepokehaus.com • Not affiliated with Nintendo / Creatures / GAME FREAK.</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

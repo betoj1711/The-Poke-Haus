@@ -1,4 +1,3 @@
-// ===== Catalog & Calculator =====
 const catalog = [
   {id:'em_common_uncommon_1000', group:'English Modern', label:'Common / Uncommon (per 1000)', unit:'per_1000', rate:11.00},
   {id:'em_rare', group:'English Modern', label:'Rare', unit:'per_card', rate:0.02},
@@ -67,7 +66,7 @@ function addLine(defaultId){
   const rmCell=document.createElement('td'); rmCell.appendChild(rmBtn);
   const catCell=document.createElement('td'); catCell.appendChild(select);
   tr.appendChild(catCell); tr.appendChild(unitCell); tr.appendChild(rateCell); tr.appendChild(qtyCell); tr.appendChild(subCell); tr.appendChild(rmCell);
-  document.getElementById('lineItems').appendChild(tr);
+  document.querySelector('#lineItems').appendChild(tr);
 
   function refresh(){ const item=catalog.find(c=>c.id===select.value); unitCell.textContent=item.unit==='per_1000'?'per 1000':'per card'; rateCell.textContent=money(item.rate); calc(); }
   select.addEventListener('change',()=>{refresh(); saveLines();});
@@ -97,80 +96,23 @@ function calc(){
     tr.querySelector('td.right:nth-child(5)').textContent = money(sub);
     subtotal += sub;
   });
-  const lang = parseFloat(document.getElementById('language').value || '1');
+  const lang = parseFloat(document.querySelector('#language').value || '1');
   const bonus = activeBonus(cardCount);
   const adjusted = subtotal * (1+bonus) * lang;
-  document.getElementById('total').textContent = money(adjusted);
-  document.getElementById('bonusNote').textContent = bonus>0 ? `Bonus applied: ${(bonus*100).toFixed(0)}% for ${cardCount.toLocaleString()} cards` : '';
+  document.querySelector('#total').textContent = money(adjusted);
+  document.querySelector('#bonusNote').textContent = bonus>0 ? `Bonus applied: ${(bonus*100).toFixed(0)}% for ${cardCount.toLocaleString()} cards` : '';
   // Hidden fields for Formspree
-  document.getElementById('estimate_total').value = adjusted.toFixed(2);
-  document.getElementById('language_multiplier').value = lang;
-  document.getElementById('no_energy').value = document.getElementById('noEnergy').checked ? 'yes':'no';
-  const summary = state.lines.map(l=>{ const it=catalog.find(c=>c.id===l.id)||{}; return {group:it.group,label:it.label,unit:it.unit,rate:it.rate,qty:l.qty}; });
-  document.getElementById('estimate_lines').value = JSON.stringify(summary);
-  document.getElementById('estimate_id').value = 'TPH-'+Math.random().toString(36).slice(2,8).toUpperCase();
-}
-function renderCatalog(){
-  const wrap=document.getElementById('catalog'); wrap.innerHTML='';
-  const groups=[...new Set(catalog.map(c=>c.group))];
-  groups.forEach(gr=>{
-    const det=document.createElement('details');
-    const sum=document.createElement('summary'); sum.textContent=gr; det.appendChild(sum);
-    const tbl=document.createElement('table');
-    const thead=document.createElement('thead'); thead.innerHTML='<tr><th>Label</th><th>Unit</th><th class="right">Rate</th></tr>'; tbl.appendChild(thead);
-    const tb=document.createElement('tbody');
-    catalog.filter(c=>c.group===gr).forEach(c=>{
-      const tr=document.createElement('tr');
-      tr.innerHTML = `<td>${c.label}</td><td>${c.unit==='per_1000'?'per 1000':'per card'}</td><td class="right">${money(c.rate)}</td>`;
-      tb.appendChild(tr);
-    });
-    tbl.appendChild(tb); det.appendChild(tbl); wrap.appendChild(det);
-  });
+  const et = document.getElementById('estimate_total'); if(et) et.value = adjusted.toFixed(2);
+  const lm = document.getElementById('language_multiplier'); if(lm) lm.value = lang;
+  const ne = document.getElementById('no_energy'); if(ne) ne.value = document.querySelector('#noEnergy').checked ? 'yes':'no';
+  const el = document.getElementById('estimate_lines'); if(el){ const summary = state.lines.map(l=>{ const it=catalog.find(c=>c.id===l.id)||{}; return {group:it.group,label:it.label,unit:it.unit,rate:it.rate,qty:l.qty}; }); el.value = JSON.stringify(summary); }
+  const ei = document.getElementById('estimate_id'); if(ei) ei.value = 'TPH-'+Math.random().toString(36).slice(2,8).toUpperCase();
 }
 
-// ===== eBay RSS feed (best-effort) =====
-async function loadEbayFeed(){
-  const grid = document.getElementById('ebay-grid');
-  if(!grid) return;
-  const RSS = 'https://www.ebay.com/sch/thepokehaus28/m.html?_rss=1';
-  try{
-    const res = await fetch(RSS);
-    const txt = await res.text();
-    const xml = new window.DOMParser().parseFromString(txt, 'text/xml');
-    const items = [...xml.querySelectorAll('item')].slice(0, 12);
-    if(items.length === 0) throw new Error('No items in RSS');
-    items.forEach(it=>{
-      const title = it.querySelector('title')?.textContent || 'eBay listing';
-      const link = it.querySelector('link')?.textContent || '#';
-      const desc = it.querySelector('description')?.textContent || '';
-      // Try to extract price and image from description (best effort)
-      const priceMatch = desc.match(/\$[0-9,]+(\.[0-9]{2})?/);
-      const imgMatch = desc.match(/https?:\/\/[^\\s\"]+\\.(jpg|jpeg|png|gif)/i);
-      const div = document.createElement('a');
-      div.href = link; div.target = '_blank'; div.rel = 'noopener'; div.className='ebay-item';
-      div.innerHTML = `
-        <img class="thumb" src="${imgMatch ? imgMatch[0] : 'assets/logo.png'}" alt="Listing image">
-        <div class="pad">
-          <h4>${title}</h4>
-          <div class="price">${priceMatch ? priceMatch[0] : ''}</div>
-        </div>`;
-      grid.appendChild(div);
-    });
-  }catch(err){
-    // graceful fallback
-    grid.innerHTML = `<div class="notice">Could not load eBay items here. <a href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">Tap to view our store →</a></div>`;
-  }
-}
-
-// Boot
+// Boot (only on sell.html)
 document.addEventListener('DOMContentLoaded', ()=>{
-  addLine(); calc(); renderCatalog(); loadEbayFeed();
-  document.getElementById('addLine').addEventListener('click',()=>addLine());
-  document.getElementById('language').addEventListener('change',calc);
-  document.getElementById('noEnergy').addEventListener('change',calc);
-  document.getElementById('resetBtn').addEventListener('click',()=>{ document.getElementById('lineItems').innerHTML=''; state.lines=[]; addLine(); calc(); });
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Lightweight Formspree UX
-  document.getElementById('sellForm').addEventListener('submit', function(){ calc(); setTimeout(()=>{ const msg=document.getElementById('formMsg'); if(msg) msg.style.display='block'; }, 400); });
+  const tbody = document.getElementById('lineItems');
+  if(tbody){ addLine(); calc(); document.getElementById('addLine').addEventListener('click',()=>addLine()); document.getElementById('language').addEventListener('change',calc); document.getElementById('noEnergy').addEventListener('change',calc); document.getElementById('resetBtn').addEventListener('click',()=>{ tbody.innerHTML=''; state.lines=[]; addLine(); calc(); }); }
+  const sf = document.getElementById('sellForm');
+  if(sf){ sf.addEventListener('submit', function(){ calc(); setTimeout(()=>{ const msg=document.getElementById('formMsg'); if(msg) msg.style.display='block'; }, 400); }); }
 });
