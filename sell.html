@@ -46,13 +46,63 @@
   </details>
   <div class="grid two"><div class="card comfy"><h2>Submit Inquiry</h2>
     <form id="sellForm" action="https://formspree.io/f/xovlbaob" method="POST">
-      <label>Name<input type="text" name="name" required></label><label>Email<input type="email" name="email" required></label>
-      <label>City / State<input type="text" name="location" placeholder="San Antonio, TX"></label>
-      <label>Payout Method<select name="payout"><option value="paypal">PayPal (Goods & Services)</option><option value="cash_venmo">Cash / Venmo (in person)</option><option value="ach">ACH (bank)</option></select></label>
-      <label>Notes<textarea name="notes" rows="3"></textarea></label>
-      <input type="hidden" name="estimate_total" id="estimate_total"/><input type="hidden" name="estimate_lines" id="estimate_lines"/><input type="hidden" name="language_multiplier" id="language_multiplier"/><input type="hidden" name="no_energy" id="no_energy"/><input type="hidden" name="estimate_id" id="estimate_id"/>
-      <div class="row spread topgap"><span class="muted tiny">We’ll reply quickly with next steps.</span><button class="btn blue" type="submit">Send Inquiry →</button></div>
-    </form><div class="notice success" id="formMsg" style="display:none;margin-top:10px">Thanks! Your inquiry was sent.</div></div>
+  <!-- Contact -->
+  <h3 style="margin:6px 0">Contact</h3>
+  <label>Name<input type="text" name="name" required></label>
+  <label>Email<input type="email" name="email" required></label>
+  <label>Phone (optional)<input type="text" name="phone" placeholder="(optional)"></label>
+
+  <!-- Where it's shipping from -->
+  <h3 style="margin:12px 0 6px">Shipping</h3>
+  <label>Ship-From City / State<input type="text" name="ship_from" placeholder="San Antonio, TX" required></label>
+  <label>Preferred Carrier
+    <select name="carrier">
+      <option value="USPS">USPS</option>
+      <option value="UPS">UPS</option>
+      <option value="FedEx">FedEx</option>
+      <option value="Other">Other</option>
+    </select>
+  </label>
+
+  <!-- Payout (PayPal G&S only) -->
+  <h3 style="margin:12px 0 6px">Payout</h3>
+  <label>PayPal Email (Goods & Services only)
+    <input type="email" name="paypal_email" placeholder="you@paypal.com" required>
+  </label>
+  <input type="hidden" name="payout" value="paypal_goods_and_services">
+
+  <!-- Lot details -->
+  <h3 style="margin:12px 0 6px">Lot Details</h3>
+  <label>Photo / Link(s) to Cards (Google Drive, Imgur, etc.)
+    <input type="text" name="photo_links" placeholder="https://drive.google.com/... (optional)">
+  </label>
+  <label>Notes
+    <textarea name="notes" rows="3" placeholder="Sets, promos, anything we should know"></textarea>
+  </label>
+
+  <!-- Hidden fields (calculator fills these) -->
+  <input type="hidden" name="estimate_total" id="estimate_total">
+  <input type="hidden" name="estimate_lines" id="estimate_lines">
+  <input type="hidden" name="language_multiplier" id="language_multiplier">
+  <input type="hidden" name="no_energy" id="no_energy">
+  <input type="hidden" name="estimate_id" id="estimate_id">
+
+  <!-- Clean, human-readable summary (auto-filled by JS) -->
+  <textarea name="summary" id="summary_field" style="display:none"></textarea>
+  <!-- Improve email subject line in your inbox -->
+  <input type="hidden" name="_subject" id="subject_field" value="The Poke Haus — Bulk Estimate">
+
+  <!-- Terms -->
+  <div class="row" style="margin-top:8px">
+    <input type="checkbox" id="agree" required>
+    <label for="agree" class="tiny">I confirm cards are Near-Mint (unless noted) and understand final payout is after inspection.</label>
+  </div>
+
+  <div class="row spread topgap">
+    <span class="muted tiny">We’ll reply quickly with next steps & shipping instructions.</span>
+    <button class="btn blue" type="submit">Send Inquiry →</button>
+  </div>
+</form>
     <div class="card comfy" id="rates"><h2>Buy Rates (Quick View)</h2><div id="catalog"></div><p class="muted tiny">Rates may change without notice.</p></div>
   </div></section></main>
 <footer class="site-foot">
