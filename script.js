@@ -93,7 +93,13 @@ function addLine(){
   if(!tbody) return;
 
   const tr = document.createElement('tr');
+  // After building <option>s:
+  const first = sel.querySelector('option');
+  if (first) sel.value = first.value;
 
+  // initialize this row
+  refreshRow();
+  
   // Category select
   const sel = document.createElement('select'); sel.style.width = '100%';
   const groups = [...new Set(catalog.map(c=>c.group))];
@@ -137,8 +143,12 @@ function addLine(){
   // initialize this row
   refreshRow();
 }
+  const ei = document.getElementById('estimate_id'); 
+  if(ei) ei.value = 'TPH-'+Math.random().toString(36).slice(2,8).toUpperCase();
 
-function saveLines(){
+  // NEW: keep state + hidden fields synced
+  saveLines();
+}function saveLines(){
   const rows = [...document.querySelectorAll('#lineItems tr')];
   state.lines = rows.map(tr => {
     const id = tr.querySelector('select')?.value;
