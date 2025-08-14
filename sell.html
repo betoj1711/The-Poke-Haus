@@ -1,11 +1,17 @@
-<!doctype html><html lang="en"><head><title>Sell (Bulk) — The Poke Haus</title><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Poke Haus — Pokémon TCG boutique in San Antonio, TX. Buy & sell cards, get a bulk estimate, and shop our eBay store.">
-<link rel="icon" href="assets/favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:image" content="assets/og-cover.png">
-<meta property="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css"></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Sell (Bulk) — The Poke Haus</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Poke Haus — Pokémon TCG boutique in San Antonio, TX. Buy & sell cards, get a bulk estimate, and shop our eBay store.">
+  <link rel="icon" href="assets/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-cover.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 <header class="site-head">
   <div class="wrap headrow">
     <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">☰</button>
@@ -14,11 +20,11 @@
       <div class="brandtext"><strong>The Poke Haus™</strong><span>San Antonio • Pokémon TCG</span></div>
     </a>
     <nav class="top-socials">
-      <a href="https://www.instagram.com/1thepokehaus" target="_blank" rel="noopener" title="Instagram"><img src="assets/instagram.png" alt="Instagram"></a>
+      <a href="https://www.instagram.com/thepokehaus1" target="_blank" rel="noopener" title="Instagram"><img src="assets/instagram.png" alt="Instagram"></a>
       <a href="https://www.tiktok.com/@thepokehaus/" target="_blank" rel="noopener" title="TikTok"><img src="assets/tiktok.png" alt="TikTok"></a>
       <a href="https://www.youtube.com/@thepokehaus/" target="_blank" rel="noopener" title="YouTube"><img src="assets/youtube.png" alt="YouTube"></a>
       <a href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener" title="eBay"><img src="assets/ebay.png" alt="eBay"></a>
-      <a href="https://www.facebook.com/1thepokehaus" target="_blank" rel="noopener" title="Facebook"><img src="assets/facebook.png" alt="Facebook"></a>
+      <a href="https://www.facebook.com/thepokehaus1" target="_blank" rel="noopener" title="Facebook"><img src="assets/facebook.png" alt="Facebook"></a>
     </nav>
   </div>
   <aside id="sidebar" class="sidebar">
@@ -33,78 +39,138 @@
     </nav>
   </aside>
 </header>
-<main><section class="wrap">
-  <div class="card comfy"><h1>Sell Your Cards (Bulk)</h1><p class="muted">Estimate only. Final payout after inspection via PayPal G&S or cash/Venmo local.</p></div>
-  <details class="calcbox" open><summary><strong>Bulk Estimate Calculator</strong></summary>
-    <div class="card">
-      <table><thead><tr><th style="width:42%">Category</th><th>Unit</th><th class="right">Rate</th><th class="right">Qty</th><th class="right">Subtotal</th><th></th></tr></thead><tbody id="lineItems"></tbody></table>
-      <div class="row topgap"><button class="btn blue" id="addLine" type="button">+ Add another</button><span class="muted tiny">Estimate only — we’ll confirm after inspection.</span></div>
-      <div class="hr"></div><div class="row wraprow"><label class="row"><span>Language</span><select id="language"><option value="1">English</option><option value="0.7">Non‑English (‑30%)</option></select></label>
-      <label class="row"><input type="checkbox" id="noEnergy"> <span>No energy cards</span></label></div>
-      <div class="hr"></div><div class="totals"><div><div class="kicker">Estimated Payout</div><div class="total-num" id="total">$0.00</div><div class="muted" id="bonusNote"></div></div><button class="btn red" id="resetBtn" type="button">Reset</button></div>
+
+<main>
+  <section class="wrap">
+    <div class="card comfy">
+      <h1>Sell Your Cards (Bulk)</h1>
+      <p class="muted">Estimate only. Final payout after inspection via <strong>PayPal Goods &amp; Services</strong>.</p>
     </div>
-  </details>
-  <div class="grid two"><div class="card comfy"><h2>Submit Inquiry</h2>
-    <form id="sellForm" action="https://formspree.io/f/xovlbaob" method="POST">
-  <!-- Contact -->
-  <h3 style="margin:6px 0">Contact</h3>
-  <label>Name<input type="text" name="name" required></label>
-  <label>Email<input type="email" name="email" required></label>
-  <label>Phone (optional)<input type="text" name="phone" placeholder="(optional)"></label>
 
-  <!-- Where it's shipping from -->
-  <h3 style="margin:12px 0 6px">Shipping</h3>
-  <label>Ship-From City / State<input type="text" name="ship_from" placeholder="San Antonio, TX" required></label>
-  <label>Preferred Carrier
-    <select name="carrier">
-      <option value="USPS">USPS</option>
-      <option value="UPS">UPS</option>
-      <option value="FedEx">FedEx</option>
-      <option value="Other">Other</option>
-    </select>
-  </label>
+    <details class="calcbox" open>
+      <summary><strong>Bulk Estimate Calculator</strong></summary>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:42%">Category</th>
+              <th>Unit</th>
+              <th class="right">Rate</th>
+              <th class="right">Qty</th>
+              <th class="right">Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lineItems"></tbody>
+        </table>
 
-  <!-- Payout (PayPal G&S only) -->
-  <h3 style="margin:12px 0 6px">Payout</h3>
-  <label>PayPal Email (Goods & Services only)
-    <input type="email" name="paypal_email" placeholder="you@paypal.com" required>
-  </label>
-  <input type="hidden" name="payout" value="paypal_goods_and_services">
+        <div class="row topgap">
+          <button class="btn blue" id="addLine" type="button">+ Add another</button>
+          <span class="muted tiny">Estimate only — we’ll confirm after inspection.</span>
+        </div>
 
-  <!-- Lot details -->
-  <h3 style="margin:12px 0 6px">Lot Details</h3>
-  <label>Photo / Link(s) to Cards (Google Drive, Imgur, etc.)
-    <input type="text" name="photo_links" placeholder="https://drive.google.com/... (optional)">
-  </label>
-  <label>Notes
-    <textarea name="notes" rows="3" placeholder="Sets, promos, anything we should know"></textarea>
-  </label>
+        <div class="hr"></div>
 
-  <!-- Hidden fields (calculator fills these) -->
-  <input type="hidden" name="estimate_total" id="estimate_total">
-  <input type="hidden" name="estimate_lines" id="estimate_lines">
-  <input type="hidden" name="language_multiplier" id="language_multiplier">
-  <input type="hidden" name="no_energy" id="no_energy">
-  <input type="hidden" name="estimate_id" id="estimate_id">
+        <div class="row wraprow">
+          <label class="row">
+            <span>Language</span>
+            <select id="language">
+              <option value="1">English</option>
+              <option value="0.7">Non-English (-30%)</option>
+            </select>
+          </label>
+          <label class="row">
+            <input type="checkbox" id="noEnergy"> <span>No energy cards</span>
+          </label>
+        </div>
 
-  <!-- Clean, human-readable summary (auto-filled by JS) -->
-  <textarea name="summary" id="summary_field" style="display:none"></textarea>
-  <!-- Improve email subject line in your inbox -->
-  <input type="hidden" name="_subject" id="subject_field" value="The Poke Haus — Bulk Estimate">
+        <div class="hr"></div>
 
-  <!-- Terms -->
-  <div class="row" style="margin-top:8px">
-    <input type="checkbox" id="agree" required>
-    <label for="agree" class="tiny">I confirm cards are Near-Mint (unless noted) and understand final payout is after inspection.</label>
-  </div>
+        <div class="totals">
+          <div>
+            <div class="kicker">Estimated Payout</div>
+            <div class="total-num" id="total">$0.00</div>
+            <div class="muted" id="bonusNote"></div>
+          </div>
+          <button class="btn red" id="resetBtn" type="button">Reset</button>
+        </div>
+      </div>
+    </details>
 
-  <div class="row spread topgap">
-    <span class="muted tiny">We’ll reply quickly with next steps & shipping instructions.</span>
-    <button class="btn blue" type="submit">Send Inquiry →</button>
-  </div>
-</form>
-    <div class="card comfy" id="rates"><h2>Buy Rates (Quick View)</h2><div id="catalog"></div><p class="muted tiny">Rates may change without notice.</p></div>
-  </div></section></main>
+    <div class="grid two">
+      <!-- Card 1: Form -->
+      <div class="card comfy">
+        <h2>Submit Inquiry</h2>
+        <form id="sellForm" action="https://formspree.io/f/xovlbaob" method="POST">
+          <!-- Contact -->
+          <h3 style="margin:6px 0">Contact</h3>
+          <label>Name<input type="text" name="name" required></label>
+          <label>Email<input type="email" name="email" required></label>
+          <label>Phone (optional)<input type="text" name="phone" placeholder="(optional)"></label>
+
+          <!-- Shipping -->
+          <h3 style="margin:12px 0 6px">Shipping</h3>
+          <label>Ship-From City / State<input type="text" name="ship_from" placeholder="San Antonio, TX" required></label>
+          <label>Preferred Carrier
+            <select name="carrier">
+              <option value="USPS">USPS</option>
+              <option value="UPS">UPS</option>
+              <option value="FedEx">FedEx</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <!-- Payout (PayPal G&S only) -->
+          <h3 style="margin:12px 0 6px">Payout</h3>
+          <label>PayPal Email (Goods & Services only)
+            <input type="email" name="paypal_email" placeholder="you@paypal.com" required>
+          </label>
+          <input type="hidden" name="payout" value="paypal_goods_and_services">
+
+          <!-- Lot details -->
+          <h3 style="margin:12px 0 6px">Lot Details</h3>
+          <label>Photo / Link(s) to Cards (Google Drive, Imgur, etc.)
+            <input type="text" name="photo_links" placeholder="https://drive.google.com/... (optional)">
+          </label>
+          <label>Notes
+            <textarea name="notes" rows="3" placeholder="Sets, promos, anything we should know"></textarea>
+          </label>
+
+          <!-- Hidden fields (calculator fills these) -->
+          <input type="hidden" name="estimate_total" id="estimate_total">
+          <input type="hidden" name="estimate_lines" id="estimate_lines">
+          <input type="hidden" name="language_multiplier" id="language_multiplier">
+          <input type="hidden" name="no_energy" id="no_energy">
+          <input type="hidden" name="estimate_id" id="estimate_id">
+
+          <!-- Clean, human-readable summary (auto-filled by JS) -->
+          <textarea name="summary" id="summary_field" style="display:none"></textarea>
+          <!-- Inbox subject -->
+          <input type="hidden" name="_subject" id="subject_field" value="The Poke Haus — Bulk Estimate">
+
+          <!-- Terms -->
+          <div class="row" style="margin-top:8px">
+            <input type="checkbox" id="agree" required>
+            <label for="agree" class="tiny">I confirm cards are Near-Mint (unless noted) and understand final payout is after inspection.</label>
+          </div>
+
+          <div class="row spread topgap">
+            <span class="muted tiny">We’ll reply quickly with next steps & shipping instructions.</span>
+            <button class="btn blue" type="submit">Send Inquiry →</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Card 2: Buy Rates -->
+      <div class="card comfy" id="rates">
+        <h2>Buy Rates (Quick View)</h2>
+        <div id="catalog"></div>
+        <p class="muted tiny">Rates may change without notice.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
 <footer class="site-foot">
   <div class="wrap footgrid">
     <div>
@@ -112,14 +178,18 @@
       <div class="muted tiny">North San Antonio, Texas • Independent Pokémon TCG boutique</div>
     </div>
     <div class="socials">
-      <a href="https://www.instagram.com/1thepokehaus" target="_blank" rel="noopener"><img src="assets/instagram.png" alt="Instagram"><span>Instagram</span></a>
+      <a href="https://www.instagram.com/thepokehaus1" target="_blank" rel="noopener"><img src="assets/instagram.png" alt="Instagram"><span>Instagram</span></a>
       <a href="https://www.tiktok.com/@thepokehaus/" target="_blank" rel="noopener"><img src="assets/tiktok.png" alt="TikTok"><span>TikTok</span></a>
       <a href="https://www.youtube.com/@thepokehaus/" target="_blank" rel="noopener"><img src="assets/youtube.png" alt="YouTube"><span>YouTube</span></a>
       <a href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener"><img src="assets/ebay.png" alt="eBay"><span>eBay</span></a>
-      <a href="https://www.facebook.com/1thepokehaus" target="_blank" rel="noopener"><img src="assets/facebook.png" alt="Facebook"><span>Facebook</span></a>
+      <a href="https://www.facebook.com/thepokehaus1" target="_blank" rel="noopener"><img src="assets/facebook.png" alt="Facebook"><span>Facebook</span></a>
     </div>
   </div>
   <div class="wrap tiny">© <span id="year"></span> The Poke Haus — thepokehaus.com • Not affiliated with Nintendo / Creatures / GAME FREAK.</div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
-<script src="nav.js"></script><script src="script.js"></script></body></html>
+
+<script src="nav.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
