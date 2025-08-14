@@ -177,3 +177,85 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 });
+// ===== Clean Formspree summary + subject on submit =====
+(function(){
+  const form = document.getElementById('sellForm');
+  if(!form) return;
+
+  form.addEventListener('submit', (e)=>{
+    // Gather calculator totals
+    const total = parseFloat(document.getElementById('estimate_total')?.value || '0');
+    const linesRaw = document.getElementById('estimate_lines')?.value || '[]';
+    let lines = [];
+    try { lines = JSON.parse(linesRaw); } catch(_){}
+
+    // Derive total card count
+    const cardCount = lines.reduce((sum, l)=> sum + (parseInt(l.qty||0,10)), 0);
+
+    // Gather contact & shipping
+    const name  = (form.querySelector('[name="name"]')?.value || '').trim();
+    const email = (form.querySelector('[name="email"]')?.value || '').trim();
+    const phone = (form.querySelector('[name="phone"]')?.value || '').trim();
+    const ship  = (form.querySelector('[name="ship_from"]')?.value || '').trim();
+    const carrier = (form.querySelector('[name="carrier"]')?.value || '').trim();
+    const paypal = (form.querySelector('[name="paypal_email"]')?.value || '').trim();
+    const links  = (form.querySelector('[name="photo_links"]')?.value || '').trim();
+    const notes  = (form.querySelector('[name="notes"]')?.value || '').trim();
+
+    // Language & energy flags (from calculator controls)
+    const langMult = document.getElementById('language_multiplier')?.value || '1';
+    const noEnergy = document.getElementById('no_energy')?.value || 'no';
+    const estimateId = document.getElementById('estimate_id')?.value || 'TPH-' + Math.random().toString(36).slice(2,8).toUpperCase();
+
+    // Build a clean, readable summary
+    const linesList = lines.map(l=>{
+      const unit = l.unit === 'per_1000' ? 'per 1000' : 'per card';
+      return `• ${l.label} — ${l.qty} (${unit} @ $${Number(l.rate).toFixed(2)})`;
+    }).join('\n');
+
+    const summary = [
+      `Estimate ID: ${estimateId}`,
+      `Total (est): $${total.toFixed(2)} • Cards: ${cardCount}`,
+      ``,
+      `Contact`,
+      `- Name: ${name}`,
+      `- Email: ${email}`,
+      phone ? `- Phone: ${phone}` : null,
+      ``,
+      `Shipping`,
+      `- Ship-From: ${ship}`,
+      `- Carrier: ${carrier}`,
+      ``,
+      `Payout`,
+      `- Method: PayPal Goods & Services`,
+      `- PayPal Email: ${paypal}`,
+      ``,
+      `Lot Details`,
+      links ? `- Photo Links: ${links}` : null,
+      notes ? `- Notes: ${notes}` : null,
+      `- Language Multiplier: ${langMult}`,
+      `- No Energy Confirmed: ${noEnergy}`,
+      ``,
+      `Buy Rate Lines`,
+      linesList || '(no lines entered)'
+    ].filter(Boolean).join('\n');
+
+    // Set hidden fields for Formspree email
+    const summaryField = document.getElementById('summary_field');
+    if(summaryField) summaryField.value = summary;
+
+    const subject = document.getElementById('subject_field');
+    if(subject) subject.value = `TPH Bulk — $${total.toFixed(2)} est • ${cardCount} cards • ${estimateId}`;
+
+    // Ensure PayPal-only
+    const payoutField = form.querySelector('[name="payout"]');
+    if(payoutField) payoutField.value = 'paypal_goods_and_services';
+
+    // Ensure we have both name + PayPal
+    if(!name || !paypal){
+      e.preventDefault();
+      alert('Please enter your name and PayPal email.');
+      return false;
+    }
+  });
+})();
