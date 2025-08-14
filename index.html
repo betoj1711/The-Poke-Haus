@@ -1,23 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>The Poke Haus™</title>
   <meta charset="utf-8">
+  <title>The Poke Haus™ — San Antonio Pokémon TCG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The Poke Haus — Pokémon TCG boutique in San Antonio, TX. Buy & sell cards, get a bulk estimate, and shop our eBay store.">
-  <link rel="icon" href="assets/favicon.png">
+  <meta name="description" content="The Poke Haus™ — San Antonio's Pokémon TCG boutique. Buy & sell cards, get instant bulk quotes, and shop our eBay store. Friendly, fair, and collector-focused.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
   <meta property="og:type" content="website">
+  <meta property="og:title" content="The Poke Haus™ — San Antonio Pokémon TCG">
+  <meta property="og:description" content="Pokémon TCG boutique in San Antonio, TX. Buy & sell cards, get bulk quotes, and shop our eBay store.">
   <meta property="og:image" content="assets/og-cover.png">
-  <meta property="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header class="site-head">
   <div class="wrap headrow">
     <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">☰</button>
     <a class="brand" href="index.html">
       <img src="assets/logo.png" alt="The Poke Haus logo">
-      <div class="brandtext"><strong>The Poke Haus™</strong><span>San Antonio • Pokémon TCG</span></div>
+      <div class="brandtext">
+        <strong>The Poke Haus™</strong>
+        <span>San Antonio • Pokémon TCG</span>
+      </div>
     </a>
     <nav class="top-socials">
       <a href="https://www.instagram.com/thepokehaus1" target="_blank" rel="noopener" title="Instagram"><img src="assets/instagram.png" alt="Instagram"></a>
@@ -29,7 +35,7 @@
   </div>
   <aside id="sidebar" class="sidebar" aria-hidden="true">
     <nav class="side-nav">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="shop.html">Shop</a>
       <a href="sell.html">Sell (Bulk)</a>
       <a href="sell-higher-value.html">Sell Higher Value (60–80%)</a>
@@ -41,13 +47,14 @@
 </header>
 
 <main>
-  <!-- Hero (clean + colorful) -->
+
+  <!-- Hero -->
   <section class="hero">
     <div class="wrap herogrid">
       <div class="card comfy">
         <div class="kicker">Pokémon TCG • Friendly • Fair</div>
         <h1>Buy, sell &amp; collect — simple and fun.</h1>
-        <p>Curated singles &amp; bundles on eBay, quick bulk estimates, and friendly local meetups.</p>
+        <p>Curated singles &amp; bundles on eBay, instant bulk quotes, and friendly local meetups.</p>
         <div class="cta-row">
           <a class="btn blue" href="sell.html">Sell Cards</a>
           <a class="btn red" href="shop.html">Shop Highlights</a>
@@ -56,19 +63,19 @@
         <ul class="trust">
           <li>Top Rated eBay Seller</li>
           <li>PayPal Goods &amp; Services</li>
-          <li>Near-Mint only</li>
+          <li>Near-Mint Only</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Featured on eBay -->
+  <!-- Featured eBay Categories -->
   <section class="wrap">
     <div class="card comfy">
       <h2>Featured on eBay</h2>
-      <p class="muted">Browse our most popular categories.</p>
+      <p class="muted">Browse some of our most popular categories.</p>
       <div class="featuregrid">
-        <!-- English Singles -->
+
         <a class="feat" href="https://www.ebay.com/str/thepokehaus28/English-Pokemon-TCG-Singles/_i.html?store_cat=4220809319" target="_blank" rel="noopener">
           <div class="thumb">
             <img src="assets/feat-english-singles.jpg" alt="English Pokémon TCG Singles">
@@ -78,7 +85,7 @@
             <div class="meta">Modern &amp; classic sets</div>
           </div>
         </a>
-        <!-- Japanese Singles -->
+
         <a class="feat" href="https://www.ebay.com/str/thepokehaus28/Japanese-Pokemon-TCG-Singles/_i.html?store_cat=4224505419" target="_blank" rel="noopener">
           <div class="thumb">
             <img src="assets/feat-japanese-singles.jpg" alt="Japanese Pokémon TCG Singles">
@@ -88,7 +95,7 @@
             <div class="meta">Premium print &amp; unique art</div>
           </div>
         </a>
-        <!-- SV Shiny Vault -->
+
         <a class="feat" href="https://www.ebay.com/str/thepokehaus28/Shiny-Scarlet-Violet/_i.html?store_cat=4235681719" target="_blank" rel="noopener">
           <div class="thumb">
             <img src="assets/feat-sv-shiny-vault.jpg" alt="Scarlet &amp; Violet Shiny Vault">
@@ -98,31 +105,43 @@
             <div class="meta">Shinies &amp; chase cards</div>
           </div>
         </a>
-      </div>
 
+      </div>
       <div class="row cta-row">
         <a class="btn dark" href="https://www.ebay.com/str/thepokehaus28" target="_blank" rel="noopener">Browse entire eBay store →</a>
       </div>
     </div>
   </section>
-<section class="wrap">
-  <div class="card comfy">
-    <h2>Quick Question?</h2>
-    <form action="https://formspree.io/f/xovlbaob" method="POST" class="grid two">
-      <label>Name<input type="text" name="name" required></label>
-      <label>Email<input type="email" name="email" required></label>
-      <label style="grid-column:1/-1">Message
-        <textarea name="message" rows="3" placeholder="Tell us what you’re looking for…"></textarea>
-      </label>
-      <div class="row" style="justify-content:flex-end;grid-column:1/-1">
-        <input type="hidden" name="_subject" value="TPH — Quick Inquiry (Homepage)">
-        <button class="btn blue" type="submit">Send →</button>
-      </div>
-    </form>
-    <p class="tiny muted">Want a bulk quote? Use the full calculator on the <a href="sell.html">Sell (Bulk)</a> page.</p>
-  </div>
-</section>
-  
+
+  <!-- Quick Contact -->
+  <section class="wrap">
+    <div class="card comfy">
+      <h2>Quick Question?</h2>
+      <form action="https://formspree.io/f/xovlbaob" method="POST" class="grid two">
+        <label>
+          Name
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+        <label style="grid-column:1/-1">
+          Message
+          <textarea name="message" rows="3" placeholder="Tell us what you’re looking for…"></textarea>
+        </label>
+        <div class="row" style="justify-content:flex-end;grid-column:1/-1">
+          <input type="hidden" name="_subject" value="TPH — Quick Inquiry (Homepage)">
+          <button class="btn blue" type="submit">Send →</button>
+        </div>
+      </form>
+      <p class="tiny muted">
+        Want a bulk quote? Use the full calculator on the 
+        <a href="sell.html">Sell (Bulk)</a> page for our complete list of accepted items and rates.
+      </p>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-foot">
@@ -139,7 +158,9 @@
       <a href="https://www.facebook.com/thepokehaus1" target="_blank" rel="noopener"><img src="assets/facebook.png" alt="Facebook"><span>Facebook</span></a>
     </div>
   </div>
-  <div class="wrap tiny">© <span id="year"></span> The Poke Haus — thepokehaus.com • Not affiliated with Nintendo / Creatures / GAME FREAK.</div>
+  <div class="wrap tiny">
+    © <span id="year"></span> The Poke Haus — thepokehaus.com • Not affiliated with Nintendo / Creatures / GAME FREAK.
+  </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
 
