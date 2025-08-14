@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><title>Contact — The Poke Haus</title><meta charset="utf-8">
+<!doctype html><html lang="en"><head><title>Sell Higher Value (60–80%) — The Poke Haus</title><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The Poke Haus — Pokémon TCG boutique in San Antonio, TX. Buy & sell cards, get a bulk estimate, and shop our eBay store.">
 <link rel="icon" href="assets/favicon.png">
@@ -33,15 +33,37 @@
     </nav>
   </aside>
 </header>
-<main><section class="wrap"><div class="card comfy">
-<h1>Contact</h1><p>Questions about selling, buying, or local meetups? Send us a note — we reply quickly.</p>
-<form id="contactForm" action="https://formspree.io/f/xovlbaob" method="POST" class="contactform">
-  <label>Your Name<input type="text" name="name" required></label>
-  <label>Email<input type="email" name="email" required></label>
-  <label>Message<textarea name="message" rows="4" placeholder="What are you looking to buy/sell? When are you free to meet in North San Antonio?"></textarea></label>
-  <div class="row spread topgap"><span class="muted tiny">Protected by Formspree.</span><button class="btn blue" type="submit">Send →</button></div>
-</form>
-</div></section></main>
+<main><section class="wrap">
+  <div class="card comfy"><h1>Sell Higher Value Cards (60–80% Market)</h1><p class="muted">We pay 60–80% of TCGplayer Market based on recent sales velocity. Add cards ≥ $5.</p></div>
+  <div class="card comfy">
+    <div class="row wraprow">
+      <label style="flex:2">Card Name<input type="text" id="cardName" placeholder="e.g., Charizard ex"></label>
+      <label style="flex:1">Set (optional)<input type="text" id="cardSet" placeholder="e.g., Obsidian Flames"></label>
+      <label style="flex:1">Condition<select id="condition"><option value="NM">Near Mint</option><option value="LP">Lightly Played</option><option value="MP">Moderately Played</option></select></label>
+      <label style="flex:0.6">Qty<input type="number" id="qty" value="1" min="1" step="1"></label>
+    </div>
+    <div class="row" style="gap:10px;margin-top:10px">
+      <button class="btn blue" id="fetchBtn" type="button">Fetch Market from TCGplayer</button>
+      <button class="btn dark" id="addManualBtn" type="button">Add Manually</button>
+      <span class="tiny muted">Optional proxy at <code>/api/tcg</code>. Works manually without it.</span>
+    </div>
+    <div class="hr"></div>
+    <table><thead><tr><th>Card</th><th>Set</th><th>Cond</th><th class="right">Market</th><th>Tier</th><th class="right">Payout/Card</th><th class="right">Qty</th><th class="right">Subtotal</th><th></th></tr></thead><tbody id="hvBody"></tbody></table>
+    <div class="totals"><div><div class="kicker">Estimated Payout</div><div class="total-num" id="hvTotal">$0.00</div></div><button class="btn red" id="hvReset" type="button">Reset</button></div>
+  </div>
+  <div class="grid two">
+    <div class="card comfy"><h2>Submit High‑Value Inquiry</h2>
+      <form id="hvForm" action="https://formspree.io/f/xovlbaob" method="POST">
+        <label>Name<input type="text" name="name" required></label><label>Email<input type="email" name="email" required></label>
+        <label>City / State<input type="text" name="location" placeholder="San Antonio, TX"></label>
+        <label>Notes<textarea name="notes" rows="3" placeholder="Links to photos, exact printings, alt arts, etc."></textarea></label>
+        <input type="hidden" name="hv_total" id="hv_total"><input type="hidden" name="hv_lines" id="hv_lines">
+        <div class="row spread topgap"><span class="muted tiny">We’ll reply quickly.</span><button class="btn blue" type="submit">Send Inquiry →</button></div>
+      </form>
+    </div>
+    <div class="card comfy"><h2>How Tiers Work</h2><ul class="bullets"><li><strong>High (80%)</strong>: lots of recent sales</li><li><strong>Medium (70%)</strong>: steady sellers</li><li><strong>Low (60%)</strong>: slower sellers</li></ul></div>
+  </div>
+</section></main>
 <footer class="site-foot">
   <div class="wrap footgrid">
     <div>
@@ -59,4 +81,4 @@
   <div class="wrap tiny">© <span id="year"></span> The Poke Haus — thepokehaus.com • Not affiliated with Nintendo / Creatures / GAME FREAK.</div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
-<script src="nav.js"></script></body></html>
+<script src="nav.js"></script><script src="tcg.js"></script></body></html>
