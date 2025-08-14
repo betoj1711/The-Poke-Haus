@@ -1,16 +1,49 @@
 // ===== Bulk Buy Calculator + Buy Rates Renderer =====
 
-// Minimal catalog (add more lines as you like)
+// Full catalog (same structure as before; add/edit rates anytime)
 const catalog = [
-  // English Modern Pokémon
+  // ——— English Modern ———
   {id:'em_common_uncommon_1000', group:'English Modern', label:'Common / Uncommon (per 1000)', unit:'per_1000', rate:11.00},
-  {id:'em_v',                     group:'English Modern', label:'V',                                 unit:'per_card', rate:0.35},
-  {id:'em_vstar',                 group:'English Modern', label:'VSTAR',                             unit:'per_card', rate:0.50},
-  {id:'em_secret_rare',           group:'English Modern', label:'Secret Rare (Gold / Rainbow)',      unit:'per_card', rate:2.75},
-  {id:'em_radiant_rare',          group:'English Modern', label:'Radiant Rare',                      unit:'per_card', rate:0.15},
+  {id:'em_rare',                        group:'English Modern', label:'Rare',                                 unit:'per_card', rate:0.02},
+  {id:'em_all_holos',                   group:'English Modern', label:'All Holos',                            unit:'per_card', rate:0.03},
+  {id:'em_v',                           group:'English Modern', label:'V',                                    unit:'per_card', rate:0.35},
+  {id:'em_vstar',                       group:'English Modern', label:'VSTAR',                                unit:'per_card', rate:0.50},
+  {id:'em_vmax',                        group:'English Modern', label:'VMAX',                                 unit:'per_card', rate:1.00},
+  {id:'em_gx',                          group:'English Modern', label:'GX',                                   unit:'per_card', rate:1.00},
+  {id:'em_gx_promo_hidden',             group:'English Modern', label:'GX Promo / Hidden Fates',              unit:'per_card', rate:0.50},
+  {id:'em_ex_fa_sv',                    group:'English Modern', label:'ex Full Art (Scarlet & Violet)',       unit:'per_card', rate:0.50},
+  {id:'em_ex_sv',                       group:'English Modern', label:'ex (Scarlet & Violet)',                unit:'per_card', rate:0.25},
+  {id:'em_illustration_rare',           group:'English Modern', label:'Illustration Rare',                    unit:'per_card', rate:1.00},
+  {id:'em_special_illustration_rare',   group:'English Modern', label:'Special Illustration Rare',            unit:'per_card', rate:4.00},
+  {id:'em_ex_xy',                       group:'English Modern', label:'EX (XY era)',                          unit:'per_card', rate:1.00},
+  {id:'em_v_fa_trainer_fa',             group:'English Modern', label:'V Full Art / Trainer Full Art',        unit:'per_card', rate:0.50},
+  {id:'em_mega_ex',                     group:'English Modern', label:'Mega EX',                              unit:'per_card', rate:2.75},
+  {id:'em_secret_rare',                 group:'English Modern', label:'Secret Rare (Gold / Rainbow)',         unit:'per_card', rate:2.75},
+  {id:'em_trainer_gallery',             group:'English Modern', label:'Trainer / Galarian Gallery',           unit:'per_card', rate:0.25},
+  {id:'em_amazing_rare',                group:'English Modern', label:'Amazing Rare',                         unit:'per_card', rate:0.35},
+  {id:'em_radiant_rare',                group:'English Modern', label:'Radiant Rare',                         unit:'per_card', rate:0.15},
+  {id:'em_baby_shinies',                group:'English Modern', label:'Baby Shinies',                         unit:'per_card', rate:0.75},
 
-  // WotC (English)
-  {id:'wotc_holo_rare_unl',       group:'WotC (English)', label:'Holo Rare Unlimited',               unit:'per_card', rate:5.00},
+  // ——— Japanese ———
+  {id:'jp_common_uncommon_1000',        group:'Japanese',       label:'Common / Uncommon (per 1000)',         unit:'per_1000', rate:8.00},
+  {id:'jp_all_holos',                   group:'Japanese',       label:'All Holos',                            unit:'per_card', rate:0.01},
+  {id:'jp_v_vstar_ex',                  group:'Japanese',       label:'V / VSTAR / ex',                       unit:'per_card', rate:0.05},
+  {id:'jp_gx_vmax',                     group:'Japanese',       label:'GX / VMAX',                            unit:'per_card', rate:0.025},
+  {id:'jp_wotc_cuc',                    group:'Japanese',       label:'WotC C/UC',                            unit:'per_card', rate:0.08},
+  {id:'jp_wotc_rare',                   group:'Japanese',       label:'WotC Rare',                            unit:'per_card', rate:0.50},
+  {id:'jp_wotc_holo_rare',              group:'Japanese',       label:'WotC Holo Rare',                       unit:'per_card', rate:4.00},
+
+  // ——— WotC (English) ———
+  {id:'wotc_cuc_unl',                   group:'WotC (English)', label:'Common / Uncommon — Unlimited',         unit:'per_card', rate:0.15},
+  {id:'wotc_trainers_unl',              group:'WotC (English)', label:'Trainers — Unlimited',                  unit:'per_card', rate:0.08},
+  {id:'wotc_rare_unl',                  group:'WotC (English)', label:'Rare — Unlimited',                      unit:'per_card', rate:1.75},
+  {id:'wotc_rare_trainers_unl',         group:'WotC (English)', label:'Rare Trainers — Unlimited',             unit:'per_card', rate:0.75},
+  {id:'wotc_holo_rare_unl',             group:'WotC (English)', label:'Holo Rare — Unlimited',                 unit:'per_card', rate:5.00},
+  {id:'wotc_common_1st',                group:'WotC (English)', label:'Common — 1st Edition',                  unit:'per_card', rate:0.75},
+  {id:'wotc_uncommon_1st',              group:'WotC (English)', label:'Uncommon — 1st Edition',                unit:'per_card', rate:1.00},
+  {id:'wotc_trainer_1st',               group:'WotC (English)', label:'Trainer — 1st Edition',                 unit:'per_card', rate:0.25},
+  {id:'wotc_rare_1st',                  group:'WotC (English)', label:'Rare — 1st Edition',                    unit:'per_card', rate:5.00},
+  {id:'wotc_rare_trainers_1st',         group:'WotC (English)', label:'Rare Trainers — 1st Edition',           unit:'per_card', rate:1.50},
 ];
 
 const bonusTiers = [
