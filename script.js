@@ -1,6 +1,6 @@
 // ===== Bulk Buy Calculator + Buy Rates Renderer =====
 
-// Full catalog (same structure as before; add/edit rates anytime)
+// --- Full catalog (edit rates/labels as needed) ---
 const catalog = [
   // ——— English Modern ———
   {id:'em_common_uncommon_1000', group:'English Modern', label:'Common / Uncommon (per 1000)', unit:'per_1000', rate:11.00},
@@ -34,16 +34,16 @@ const catalog = [
   {id:'jp_wotc_holo_rare',              group:'Japanese',       label:'WotC Holo Rare',                       unit:'per_card', rate:4.00},
 
   // ——— WotC (English) ———
-  {id:'wotc_cuc_unl',                   group:'WotC (English)', label:'Common / Uncommon — Unlimited',         unit:'per_card', rate:0.15},
-  {id:'wotc_trainers_unl',              group:'WotC (English)', label:'Trainers — Unlimited',                  unit:'per_card', rate:0.08},
-  {id:'wotc_rare_unl',                  group:'WotC (English)', label:'Rare — Unlimited',                      unit:'per_card', rate:1.75},
-  {id:'wotc_rare_trainers_unl',         group:'WotC (English)', label:'Rare Trainers — Unlimited',             unit:'per_card', rate:0.75},
-  {id:'wotc_holo_rare_unl',             group:'WotC (English)', label:'Holo Rare — Unlimited',                 unit:'per_card', rate:5.00},
-  {id:'wotc_common_1st',                group:'WotC (English)', label:'Common — 1st Edition',                  unit:'per_card', rate:0.75},
-  {id:'wotc_uncommon_1st',              group:'WotC (English)', label:'Uncommon — 1st Edition',                unit:'per_card', rate:1.00},
-  {id:'wotc_trainer_1st',               group:'WotC (English)', label:'Trainer — 1st Edition',                 unit:'per_card', rate:0.25},
-  {id:'wotc_rare_1st',                  group:'WotC (English)', label:'Rare — 1st Edition',                    unit:'per_card', rate:5.00},
-  {id:'wotc_rare_trainers_1st',         group:'WotC (English)', label:'Rare Trainers — 1st Edition',           unit:'per_card', rate:1.50},
+  {id:'wotc_cuc_unl',                   group:'WotC (English)', label:'Common / Uncommon — Unlimited',        unit:'per_card', rate:0.15},
+  {id:'wotc_trainers_unl',              group:'WotC (English)', label:'Trainers — Unlimited',                 unit:'per_card', rate:0.08},
+  {id:'wotc_rare_unl',                  group:'WotC (English)', label:'Rare — Unlimited',                     unit:'per_card', rate:1.75},
+  {id:'wotc_rare_trainers_unl',         group:'WotC (English)', label:'Rare Trainers — Unlimited',            unit:'per_card', rate:0.75},
+  {id:'wotc_holo_rare_unl',             group:'WotC (English)', label:'Holo Rare — Unlimited',                unit:'per_card', rate:5.00},
+  {id:'wotc_common_1st',                group:'WotC (English)', label:'Common — 1st Edition',                 unit:'per_card', rate:0.75},
+  {id:'wotc_uncommon_1st',              group:'WotC (English)', label:'Uncommon — 1st Edition',               unit:'per_card', rate:1.00},
+  {id:'wotc_trainer_1st',               group:'WotC (English)', label:'Trainer — 1st Edition',                unit:'per_card', rate:0.25},
+  {id:'wotc_rare_1st',                  group:'WotC (English)', label:'Rare — 1st Edition',                   unit:'per_card', rate:5.00},
+  {id:'wotc_rare_trainers_1st',         group:'WotC (English)', label:'Rare Trainers — 1st Edition',          unit:'per_card', rate:1.50},
 ];
 
 const bonusTiers = [
@@ -54,8 +54,12 @@ const bonusTiers = [
 
 const state = { lines: [] };
 
+// Utilities
 function money(n){
-  return n.toLocaleString(undefined,{ style:'currency', currency:'USD', minimumFractionDigits:2, maximumFractionDigits:2 });
+  return n.toLocaleString(undefined, {
+    style:'currency', currency:'USD',
+    minimumFractionDigits:2, maximumFractionDigits:2
+  });
 }
 
 // ---- Buy Rates (right-hand card on sell.html) ----
@@ -64,6 +68,7 @@ function groupedCatalog(){
   catalog.forEach(c => { if(!g[c.group]) g[c.group] = []; g[c.group].push(c); });
   return g;
 }
+
 function renderCatalog(){
   const wrap = document.getElementById('catalog');
   if(!wrap) return;
@@ -93,15 +98,10 @@ function addLine(){
   if(!tbody) return;
 
   const tr = document.createElement('tr');
-  // After building <option>s:
-  const first = sel.querySelector('option');
-  if (first) sel.value = first.value;
 
-  // initialize this row
-  refreshRow();
-  
   // Category select
-  const sel = document.createElement('select'); sel.style.width = '100%';
+  const sel = document.createElement('select');
+  sel.style.width = '100%';
   const groups = [...new Set(catalog.map(c=>c.group))];
   groups.forEach(gr=>{
     const og = document.createElement('optgroup'); og.label = gr;
@@ -136,6 +136,10 @@ function addLine(){
     calc();
   }
 
+  // NEW: set initial selection to the first option so the row isn't blank
+  const first = sel.querySelector('option');
+  if (first) sel.value = first.value;
+
   sel.addEventListener('change', ()=>{ refreshRow(); saveLines(); });
   qtyInput.addEventListener('input', ()=>{ calc(); saveLines(); });
   rmBtn.addEventListener('click', ()=>{ tr.remove(); calc(); saveLines(); });
@@ -143,12 +147,8 @@ function addLine(){
   // initialize this row
   refreshRow();
 }
-  const ei = document.getElementById('estimate_id'); 
-  if(ei) ei.value = 'TPH-'+Math.random().toString(36).slice(2,8).toUpperCase();
 
-  // NEW: keep state + hidden fields synced
-  saveLines();
-}function saveLines(){
+function saveLines(){
   const rows = [...document.querySelectorAll('#lineItems tr')];
   state.lines = rows.map(tr => {
     const id = tr.querySelector('select')?.value;
@@ -200,9 +200,14 @@ function calc(){
     });
     el.value = JSON.stringify(lines);
   }
-  const ei = document.getElementById('estimate_id'); if(ei) ei.value = 'TPH-'+Math.random().toString(36).slice(2,8).toUpperCase();
+  const ei = document.getElementById('estimate_id');
+  if(ei) ei.value = 'TPH-' + Math.random().toString(36).slice(2,8).toUpperCase();
+
+  // NEW: keep state + hidden fields synced even if user submits immediately
+  saveLines();
 }
 
+// Boot
 document.addEventListener('DOMContentLoaded', ()=>{
   // Render rates list
   renderCatalog();
@@ -220,22 +225,23 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 });
+
 // ===== Clean Formspree summary + subject on submit =====
 (function(){
   const form = document.getElementById('sellForm');
   if(!form) return;
 
   form.addEventListener('submit', (e)=>{
-    // Gather calculator totals
+    // Totals from calculator
     const total = parseFloat(document.getElementById('estimate_total')?.value || '0');
     const linesRaw = document.getElementById('estimate_lines')?.value || '[]';
     let lines = [];
-    try { lines = JSON.parse(linesRaw); } catch(_){}
+    try { lines = JSON.parse(linesRaw); } catch(_) {}
 
     // Derive total card count
     const cardCount = lines.reduce((sum, l)=> sum + (parseInt(l.qty||0,10)), 0);
 
-    // Gather contact & shipping
+    // Contact & shipping
     const name  = (form.querySelector('[name="name"]')?.value || '').trim();
     const email = (form.querySelector('[name="email"]')?.value || '').trim();
     const phone = (form.querySelector('[name="phone"]')?.value || '').trim();
@@ -245,12 +251,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const links  = (form.querySelector('[name="photo_links"]')?.value || '').trim();
     const notes  = (form.querySelector('[name="notes"]')?.value || '').trim();
 
-    // Language & energy flags (from calculator controls)
     const langMult = document.getElementById('language_multiplier')?.value || '1';
     const noEnergy = document.getElementById('no_energy')?.value || 'no';
     const estimateId = document.getElementById('estimate_id')?.value || 'TPH-' + Math.random().toString(36).slice(2,8).toUpperCase();
 
-    // Build a clean, readable summary
+    // Readable summary
     const linesList = lines.map(l=>{
       const unit = l.unit === 'per_1000' ? 'per 1000' : 'per card';
       return `• ${l.label} — ${l.qty} (${unit} @ $${Number(l.rate).toFixed(2)})`;
@@ -290,11 +295,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const subject = document.getElementById('subject_field');
     if(subject) subject.value = `TPH Bulk — $${total.toFixed(2)} est • ${cardCount} cards • ${estimateId}`;
 
-    // Ensure PayPal-only
+    // Enforce PayPal-only
     const payoutField = form.querySelector('[name="payout"]');
     if(payoutField) payoutField.value = 'paypal_goods_and_services';
 
-    // Ensure we have both name + PayPal
+    // Require name + PayPal for cleaner leads
     if(!name || !paypal){
       e.preventDefault();
       alert('Please enter your name and PayPal email.');
