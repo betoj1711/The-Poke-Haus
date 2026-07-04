@@ -1,0 +1,2 @@
+import {PageShell} from './page-shell';
+export function LegalPage({title,children}:{title:string,children:React.ReactNode}){return <PageShell><section className="pageHero"><div className="container"><h1 className="display">{title}</h1><p>Effective July 4, 2026</p></div></section><section className="section"><article className="container" style={{maxWidth:820,lineHeight:1.75}}>{children}</article></section></PageShell>}

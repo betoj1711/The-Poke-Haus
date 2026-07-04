@@ -1,0 +1,3 @@
+import type {Metadata} from 'next';import './globals.css';
+export const metadata:Metadata={metadataBase:new URL('https://thepokehaus.com'),title:{default:'Sell Pokémon Cards | The Poke Haus',template:'%s | The Poke Haus'},description:'Upload photos, get an offer, ship your cards, and receive payout after review.',openGraph:{title:'The Poke Haus',description:'The easiest way to turn your Pokémon cards into cash.',url:'https://thepokehaus.com',siteName:'The Poke Haus',type:'website'}};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}

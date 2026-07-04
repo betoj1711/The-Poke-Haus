@@ -1,30 +1,36 @@
-# The Poke Haus — Website (v5)
-Exact logo colors applied.
-Palette → bg:#191970, panel:#202020, ink:#fefefe, muted:#848484, accent:#2a75ba, accent2:#981111, accent3:#171717
+# The Poke Haus buyback platform
 
-## High‑Value Singles Calculator ($5+)
-- New page: `sell-high.html`
-- Uses `/api/tcg` proxy to fetch TCGplayer Market Price.
-- Payout tiers (per card): High 80% • Medium 70% • Low 60% (based on sales velocity).
+A mobile-first Next.js MVP for acquiring Pokémon card collections. It runs with local demo data and does not require API keys.
 
-### Deploy a Proxy (choose one)
-**Cloudflare Worker**
-1) `wrangler secret put TCGPLAYER_PUBLIC`
-2) `wrangler secret put TCGPLAYER_PRIVATE`
-3) Deploy the `api/cloudflare-worker.js` as a Worker at `/api/tcg`.
-4) Update your Pages/Routes to forward `/api/*` to the Worker.
+## Local setup
 
-**Netlify Function**
-1) Add env vars in Netlify: `TCGPLAYER_PUBLIC`, `TCGPLAYER_PRIVATE`
-2) Deploy `api/netlify-function.js` as a function at `/api/tcg`.
+1. `npm install`
+2. `cp .env.example .env.local`
+3. `npm run dev`
+4. Visit `http://localhost:3000`
 
-### TCGplayer API Keys
-- Sign up: https://developer.tcgplayer.com/
-- Use OAuth client credentials to get a bearer token (already in examples).
+Public routes include `/sell`, `/pricing`, `/how-it-works`, `/faq`, `/track`, and legal/support pages. Demo seller and admin workspaces are available at `/dashboard` and `/admin`.
 
-### Frontend Behavior
-- Ignores cards under $5 market.
-- Condition multipliers: NM 1.00, LP 0.92, MP 0.85
-- If velocity meta missing, defaults to 70%.
-- Inquiry posts to Formspree with line breakdown and total.
+## Supabase
 
+Create a Supabase project, add the URL and keys to `.env.local`, then run `supabase/migrations/001_initial.sql` followed by `supabase/seed.sql`. The migration includes seller/admin roles and initial row-level security. The UI intentionally falls back to mock data until credentials are present.
+
+Create a private Storage bucket named `buy-order-media`. Limit accepted types to images and video, and add policies that scope object paths to the authenticated seller ID.
+
+## Vercel
+
+Import the repository in Vercel, add the environment variables from `.env.example`, and deploy using the Next.js preset. Set the production Supabase Auth site URL and redirect allowlist to the Vercel domain.
+
+## Future API TODO
+
+- Wire Supabase Auth, database repositories, signed Storage uploads, and middleware route protection.
+- Connect TCGplayer, eBay sold comps, and Pokémon metadata in `lib/services/market.ts`.
+- Add seller-paid Shippo or EasyPost label checkout; never silently make shipping merchant-paid.
+- Connect Resend templates in `lib/services/notifications.ts`.
+- Add a payout provider for approved one-click payouts while preserving manual controls.
+- Add eBay listing API support using the existing inventory CSV model.
+- Add audit-grade package video retention rules, disputes, and notification preferences.
+
+## Pricing invariant
+
+Customer-facing final offers always pass through `customerFacingOffer()` and round down to a whole dollar. Decimal values remain available only for internal accounting.

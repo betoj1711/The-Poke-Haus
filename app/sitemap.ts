@@ -1,0 +1,1 @@
+import type {MetadataRoute} from 'next';export default function sitemap():MetadataRoute.Sitemap{return ['','/sell','/how-it-works','/pricing','/faq','/track','/account','/contact','/privacy','/terms','/shipping-policy'].map(p=>({url:'https://thepokehaus.com'+p,lastModified:new Date(),changeFrequency:p===''?'weekly':'monthly',priority:p===''?1:.7}))}
