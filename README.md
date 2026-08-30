@@ -1,36 +1,26 @@
-# The Poke Haus buyback platform
+# The Poke Haus
 
-A mobile-first Next.js MVP for acquiring Pokémon card collections. It runs with local demo data and does not require API keys.
+Conversion-focused storefront for The Poke Haus, a collector-run Pokémon TCG shop in San Antonio. The homepage sends buyers to the live eBay inventory while preserving the card buyback workflow as a secondary path.
 
-## Local setup
+## Local development
 
-1. `npm install`
-2. `cp .env.example .env.local`
-3. `npm run dev`
-4. Visit `http://localhost:3000`
+1. Install dependencies with `pnpm install`.
+2. Start the site with `pnpm dev`.
+3. Visit `http://localhost:3000`.
 
-Public routes include `/sell`, `/pricing`, `/how-it-works`, `/faq`, `/track`, and legal/support pages. Demo seller and admin workspaces are available at `/dashboard` and `/admin`.
+Run `pnpm build` before deployment.
 
-## Supabase
+## Main routes
 
-Create a Supabase project, add the URL and keys to `.env.local`, then run `supabase/migrations/001_initial.sql` followed by `supabase/seed.sql`. The migration includes seller/admin roles and initial row-level security. The UI intentionally falls back to mock data until credentials are present.
+- `/` — eBay-focused storefront
+- `/sell` — card buy-order flow
+- `/pricing` and `/how-it-works` — seller information
+- `/faq`, `/contact`, and `/track` — customer support
+- `/account` and `/dashboard` — seller workspace
+- `/admin` — internal order and inventory views
 
-Create a private Storage bucket named `buy-order-media`. Limit accepted types to images and video, and add policies that scope object paths to the authenticated seller ID.
+## Deployment
 
-## Vercel
+The application is a Next.js project and can be deployed with Vercel's Next.js preset. `CNAME` records the production domain, `www.thepokehaus.com`.
 
-Import the repository in Vercel, add the environment variables from `.env.example`, and deploy using the Next.js preset. Set the production Supabase Auth site URL and redirect allowlist to the Vercel domain.
-
-## Future API TODO
-
-- Wire Supabase Auth, database repositories, signed Storage uploads, and middleware route protection.
-- Connect TCGplayer, eBay sold comps, and Pokémon metadata in `lib/services/market.ts`.
-- Add seller-paid Shippo or EasyPost label checkout; never silently make shipping merchant-paid.
-- Connect Resend templates in `lib/services/notifications.ts`.
-- Add a payout provider for approved one-click payouts while preserving manual controls.
-- Add eBay listing API support using the existing inventory CSV model.
-- Add audit-grade package video retention rules, disputes, and notification preferences.
-
-## Pricing invariant
-
-Customer-facing final offers always pass through `customerFacingOffer()` and round down to a whole dollar. Decimal values remain available only for internal accounting.
+The Supabase migration and seed files support the future authenticated seller/admin workflow. The current interface falls back to demo data until service credentials and repository adapters are connected.
