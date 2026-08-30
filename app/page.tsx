@@ -1,2 +1,66 @@
-import Image from 'next/image';import Link from 'next/link';import {ArrowRight,Camera,CheckCircle2,Clock3,PackageCheck,ShieldCheck} from 'lucide-react';import {PageShell} from '@/components/page-shell';
-export default function Home(){const org={"@context":"https://schema.org","@type":"Organization","name":"The Poke Haus","url":"https://thepokehaus.com"};return <PageShell><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(org)}}/><section className="hero"><div className="heroCopy"><h1 className="display">Sell Your Pokémon Cards Without the Hassle</h1><p>Upload photos, get an offer, ship your cards, and receive payout after review.</p><div className="actions"><Link className="btn primary" href="/sell">Start a Buy Order <ArrowRight size={18}/></Link><Link className="btn" href="/pricing">View Buy Prices</Link></div></div><div className="heroVisual"><Image src="/hero-cards.jpg" alt="A collector organizing trading cards for a buy order" fill priority/><div className="floating"><CheckCircle2 color="#123fc4"/> Collections of any size welcome</div></div></section><section className="trust"><div className="container trustGrid"><div className="trustItem"><ShieldCheck/><div><strong>Transparent pricing</strong><small>Clear rates, honest review</small></div></div><div className="trustItem"><Camera/><div><strong>Video recorded</strong><small>Every package opening</small></div></div><div className="trustItem"><Clock3/><div><strong>Paid in 48 hours</strong><small>After delivery and review</small></div></div><div className="trustItem"><PackageCheck/><div><strong>Any collection</strong><small>From stacks to grails</small></div></div></div></section><section className="section"><div className="container"><div className="sectionHead"><h2 className="display">Simple from collection to cash</h2><p className="sectionLead">No need to list hundreds of cards yourself. No eBay fees. No waiting for buyers. No shipping dozens of orders.</p></div><div className="steps">{[['Upload','Share clear photos or a quick packing video.'],['Review','We review your cards and send a transparent offer.'],['Ship','Accept your offer, add tracking, and ship safely.'],['Get paid','Receive Cash App, Venmo, or ACH payout after review.']].map((x,i)=><article className="step" key={x[0]}><div className="num">{i+1}</div><h3>{x[0]}</h3><p>{x[1]}</p></article>)}</div></div></section><section className="section blueSection"><div className="container"><div className="sectionHead"><h2 className="display">Small cards = simple pricing.<br/>Big cards = competitive offers.</h2><Link className="btn primary" href="/pricing">See every rate <ArrowRight size={18}/></Link></div><div className="priceGrid"><div className="priceMain"><strong>V / VMAX / VSTAR / ex</strong><div className="display rate">$0.50</div><p>each card · transparent bulk rate</p><div className="rows"><div className="row"><span>Premium Modern</span><strong>Starting at $1 each</strong></div><div className="row"><span>Reverse Holos</span><strong>$20 / 1,000</strong></div></div></div><div className="priceSide"><h3 style={{fontSize:30,marginTop:0}}>Cards over $5</h3><p style={{color:'var(--muted)',lineHeight:1.6}}>Higher-value cards are reviewed individually. Highly sought-after cards may receive 60–80% of market value.</p><div className="callout"><strong>Final payout is always rounded down to the nearest whole dollar.</strong></div></div></div></div></section><section className="section"><div className="container" style={{textAlign:'center'}}><h2 className="display" style={{margin:'0 auto 22px'}}>Your collection deserves an easy exit.</h2><p className="sectionLead" style={{margin:'0 auto 30px'}}>Start with a few photos. We’ll guide you through the rest.</p><Link className="btn primary" href="/sell">Start a Buy Order <ArrowRight size={18}/></Link></div></section></PageShell>}
+import Image from 'next/image';
+import Link from 'next/link';
+import {ArrowUpRight, Check, PackageCheck, ShieldCheck, Sparkles, Star} from 'lucide-react';
+import {PageShell} from '@/components/page-shell';
+
+const EBAY = 'https://www.ebay.com/str/thepokehaus28';
+const categories = [
+  {name:'English singles', note:'Modern sets, staples & chase cards', image:'/english-singles.jpg', href:`${EBAY}/English-Pokemon-TCG-Singles/_i.html?store_cat=4220809319`},
+  {name:'Japanese singles', note:'Premium print quality & unique art', image:'/japanese-singles.jpg', href:`${EBAY}/Japanese-Pokemon-TCG-Singles/_i.html?store_cat=4224505419`},
+  {name:'Shiny favorites', note:'Scarlet & Violet shiny vault', image:'/shiny-vault.jpg', href:`${EBAY}/Shiny-Scarlet-Violet/_i.html?store_cat=4235681719`},
+];
+
+export default function Home(){
+  const org={"@context":"https://schema.org","@type":"Organization","name":"The Poke Haus","url":"https://thepokehaus.com","sameAs":[EBAY]};
+  return <PageShell>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(org)}}/>
+    <main>
+      <section className="shopHero">
+        <div className="shopHeroCopy">
+          <h1 className="display">Find the card your collection is missing.</h1>
+          <p>Curated Pokémon TCG singles, bundles, and sealed finds—carefully checked and shipped fast from San Antonio.</p>
+          <div className="actions">
+            <a className="btn shopPrimary" href={EBAY} target="_blank" rel="noopener noreferrer">Shop the eBay Store <ArrowUpRight size={19}/></a>
+            <Link className="btn shopSecondary" href="/sell">Sell Your Cards</Link>
+          </div>
+          <p className="microcopy"><Check size={15}/> Secure checkout and buyer protection through eBay</p>
+        </div>
+        <div className="shopHeroVisual">
+          <Image src="/hero-cards.jpg" alt="A carefully organized trading card collection ready for collectors" fill priority sizes="(max-width: 900px) 100vw, 55vw"/>
+          <div className="heroStamp"><Image src="/logo.png" alt="The Poke Haus" width={210} height={150}/></div>
+        </div>
+      </section>
+
+      <section className="salesProof" aria-label="Why collectors shop with us">
+        <div className="container proofGrid">
+          <div><Star/><strong>99.7% positive feedback</strong><span>Trusted eBay seller</span></div>
+          <div><Sparkles/><strong>2,000+ items sold</strong><span>Growing collector community</span></div>
+          <div><ShieldCheck/><strong>Carefully checked</strong><span>Clear, honest condition notes</span></div>
+          <div><PackageCheck/><strong>Protected shipping</strong><span>Packed with collectors in mind</span></div>
+        </div>
+      </section>
+
+      <section className="categorySection" id="shop">
+        <div className="container">
+          <div className="shopSectionHead"><div><p className="sectionLabel">Shop by collection</p><h2 className="display">Start with what you collect.</h2></div><a href={EBAY} target="_blank" rel="noopener noreferrer">Browse every listing <ArrowUpRight size={18}/></a></div>
+          <div className="categoryGrid">
+            {categories.map((category)=><a className="categoryCard" key={category.name} href={category.href} target="_blank" rel="noopener noreferrer">
+              <Image src={category.image} alt="" fill sizes="(max-width: 700px) 100vw, 33vw"/>
+              <div className="categoryShade"/>
+              <div className="categoryCopy"><h3>{category.name}</h3><p>{category.note}</p><span>Shop now <ArrowUpRight size={16}/></span></div>
+            </a>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="collectorPromise" id="why-us"><div className="container promiseGrid">
+        <div><p className="sectionLabel">Collector-run in San Antonio</p><h2 className="display">Cards worth collecting. Service worth coming back for.</h2></div>
+        <div className="promiseCopy"><p>Whether you’re finishing a binder, upgrading a deck, or hunting a favorite illustration, we make the purchase feel simple and dependable.</p><ul><li><Check/>Curated singles and focused bundles</li><li><Check/>Near-mint inventory clearly presented</li><li><Check/>Fast communication when you need help</li></ul><a className="textLink" href={EBAY} target="_blank" rel="noopener noreferrer">See what’s in the shop <ArrowUpRight size={18}/></a></div>
+      </div></section>
+
+      <section className="sellBand"><div className="container sellBandInner"><div><p className="sectionLabel">Make room for the next chase</p><h2 className="display">Have cards to sell?</h2><p>Turn bulk or higher-value cards into your next collecting budget with a straightforward quote.</p></div><Link className="btn shopSecondary light" href="/sell">Get a card quote</Link></div></section>
+
+      <section className="finalShop"><div className="container"><Image src="/logo.png" alt="The Poke Haus" width={170} height={120}/><h2 className="display">Your next favorite card is waiting.</h2><p>Shop the latest singles, bundles, and collectible finds on eBay.</p><a className="btn shopPrimary" href={EBAY} target="_blank" rel="noopener noreferrer">Shop the eBay Store <ArrowUpRight size={19}/></a></div></section>
+    </main>
+  </PageShell>
+}

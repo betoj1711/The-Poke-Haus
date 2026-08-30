@@ -1,0 +1,4 @@
+node_modules/
+.next/
+work/storefront-*.png
+.DS_Store
