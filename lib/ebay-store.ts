@@ -23,7 +23,7 @@ export async function getStoreItems():Promise<StoreItem[]>{
   try{
     const access=await token();
     if(!access)return fallback;
-    const params=new URLSearchParams({q:'Pokemon',filter:'sellers:{the_poke_haus}',limit:'24',sort:'newlyListed'});
+    const params=new URLSearchParams({q:'Pokemon',filter:'sellers:{the_poke_haus}',limit:'200',sort:'newlyListed'});
     const response=await fetch(`https://api.ebay.com/buy/browse/v1/item_summary/search?${params}`,{headers:{Authorization:`Bearer ${access}`,'X-EBAY-C-MARKETPLACE-ID':'EBAY_US'},next:{revalidate:900}});
     if(!response.ok)return fallback;
     const data=await response.json();
