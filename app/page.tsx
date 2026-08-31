@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {ArrowUpRight, Check, PackageCheck, ShieldCheck, Sparkles, Star} from 'lucide-react';
 import {PageShell} from '@/components/page-shell';
+import {InventoryShowcase} from '@/components/inventory-showcase';
+import {getStoreItems} from '@/lib/ebay-store';
 
 const EBAY = 'https://www.ebay.com/str/thepokehaus28';
 const categories = [
@@ -10,26 +12,26 @@ const categories = [
   {name:'Shiny favorites', note:'Scarlet & Violet shiny vault', image:'/shiny-vault.jpg', href:`${EBAY}/Shiny-Scarlet-Violet/_i.html?store_cat=4235681719`},
 ];
 
-export default function Home(){
+export default async function Home(){
+  const items=await getStoreItems();
   const org={"@context":"https://schema.org","@type":"Organization","name":"The Poke Haus","url":"https://thepokehaus.com","sameAs":[EBAY]};
   return <PageShell>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(org)}}/>
     <main>
       <section className="shopHero">
         <div className="shopHeroCopy">
-          <h1 className="display">Find the card your collection is missing.</h1>
-          <p>Curated Pokémon TCG singles, bundles, and sealed finds—carefully checked and shipped fast from San Antonio.</p>
+          <h1 className="display">Your next favorite card is already here.</h1>
+          <p>Fresh Pokémon singles, sealed finds, and collector favorites—updated directly from our eBay store.</p>
           <div className="actions">
-            <a className="btn shopPrimary" href={EBAY} target="_blank" rel="noopener noreferrer">Shop the eBay Store <ArrowUpRight size={19}/></a>
-            <Link className="btn shopSecondary" href="/sell">Sell Your Cards</Link>
+            <a className="btn shopPrimary" href="#inventory">Shop new arrivals</a>
+            <a className="btn shopSecondary" href={EBAY} target="_blank" rel="noopener noreferrer">Browse all cards <ArrowUpRight size={19}/></a>
           </div>
           <p className="microcopy"><Check size={15}/> Secure checkout and buyer protection through eBay</p>
         </div>
-        <div className="shopHeroVisual">
-          <Image src="/hero-cards.jpg" alt="A carefully organized trading card collection ready for collectors" fill priority sizes="(max-width: 900px) 100vw, 55vw"/>
-          <div className="heroStamp"><Image src="/logo.png" alt="The Poke Haus" width={210} height={150}/></div>
-        </div>
+        <div className="shopHeroVisual productHero" aria-label="Featured cards from the eBay store">{items.slice(0,4).map((item,index)=><a key={item.id} className={`heroCard heroCard${index+1}`} href={item.url} target="_blank" rel="noopener noreferrer"><Image src={item.image} alt={item.title} fill priority={index<2} sizes="240px"/></a>)}</div>
       </section>
+
+      <InventoryShowcase items={items}/>
 
       <section className="salesProof" aria-label="Why collectors shop with us">
         <div className="container proofGrid">
