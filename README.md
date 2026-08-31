@@ -14,6 +14,10 @@ Run `pnpm build` before deployment.
 
 The storefront displays verified current listings as a fallback. For automatic inventory, pricing, and availability updates, create an eBay Developer production keyset and add `EBAY_CLIENT_ID` and `EBAY_CLIENT_SECRET` to the Vercel project environment. Never expose the client secret in browser code.
 
+## Website requests
+
+Contact messages and sell-order submissions are delivered to `sell@thepokehaus.com` through Resend. Add `RESEND_API_KEY` and `EMAIL_FROM` in Vercel and verify the sending domain in Resend before launch.
+
 ## Main routes
 
 - `/` — eBay-focused storefront
