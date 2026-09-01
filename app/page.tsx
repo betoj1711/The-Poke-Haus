@@ -56,11 +56,11 @@ export default async function Home(){
       </section>
 
       <section className="collectorPromise" id="why-us"><div className="container promiseGrid">
-        <div><p className="sectionLabel">Collector-run in San Antonio</p><h2 className="display">Cards worth collecting. Service worth coming back for.</h2></div>
-        <div className="promiseCopy"><p>Whether you’re finishing a binder, upgrading a deck, or hunting a favorite illustration, we make the purchase feel simple and dependable.</p><ul><li><Check/>Curated singles and focused bundles</li><li><Check/>Near-mint inventory clearly presented</li><li><Check/>Fast communication when you need help</li></ul><a className="textLink" href={EBAY} target="_blank" rel="noopener noreferrer">See what’s in the shop <ArrowUpRight size={18}/></a></div>
+        <div><p className="sectionLabel">San Antonio–based eBay store</p><h2 className="display">Cards worth collecting. Service worth coming back for.</h2></div>
+        <div className="promiseCopy"><p>Whether you’re finishing a binder, upgrading a deck, or hunting a favorite illustration, our eBay store makes the purchase feel simple and dependable.</p><ul><li><Check/>Curated singles and focused bundles</li><li><Check/>Near-mint inventory clearly presented</li><li><Check/>Local bulk buying by appointment</li></ul><a className="textLink" href={EBAY} target="_blank" rel="noopener noreferrer">See what’s on eBay <ArrowUpRight size={18}/></a></div>
       </div></section>
 
-      <section className="sellBand"><div className="container sellBandInner"><div><p className="sectionLabel">Make room for the next chase</p><h2 className="display">Have cards to sell?</h2><p>Turn bulk or higher-value cards into your next collecting budget with a straightforward quote.</p></div><Link className="btn shopSecondary light" href="/sell">Get a card quote</Link></div></section>
+      <section className="sellBand"><div className="container sellBandInner"><div><p className="sectionLabel">San Antonio meetup or ship to us</p><h2 className="display">Have Pokémon bulk to sell?</h2><p>Get a simple bulk estimate online. Local sellers can arrange a safe public meetup in San Antonio; everyone else can ship with tracking.</p></div><Link className="btn shopSecondary light" href="/sell">Price my bulk</Link></div></section>
 
       <section className="finalShop"><div className="container"><Image src="/logo.png" alt="The Poke Haus" width={170} height={120}/><h2 className="display">Your next favorite card is waiting.</h2><p>Shop the latest singles, bundles, and collectible finds on eBay.</p><a className="btn shopPrimary" href={EBAY} target="_blank" rel="noopener noreferrer">Shop the eBay Store <ArrowUpRight size={19}/></a></div></section>
     </main>

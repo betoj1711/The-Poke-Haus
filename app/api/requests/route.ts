@@ -18,8 +18,7 @@ export async function POST(request:Request){
     const fields=kind==='sell'?[
       ['Collection type',clean(body.collectionType,120)],['Estimated payout',clean(body.estimate,40)],
       ['Bulk V / ex',clean(body.counts?.bulk,20)],['Premium cards',clean(body.counts?.premium,20)],
-      ['Reverse holos',clean(body.counts?.reverse,20)],['Cards worth $5+',clean(body.counts?.high,20)],
-      ['Graded cards',clean(body.counts?.graded,20)],['Phone',clean(body.phone,80)],
+      ['Reverse holos',clean(body.counts?.reverse,20)],['Handoff method',clean(body.sellerRoute,120)],['Phone',clean(body.phone,80)],
       ['Payout preference',clean(body.payoutMethod,80)],['Payout handle',clean(body.payoutDetails,180)],
       ['Photo / video link',clean(body.mediaLink,1000)],['Collection notes',clean(body.notes)],
     ]:[['Message',message]];
